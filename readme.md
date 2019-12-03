@@ -39,7 +39,7 @@ var player = new TcPlayer('id_test_video', {
         "x5_orientation": 2,
 	"rates": [2, 1.5, 1.0, 0.5],
 	"curRateIndex": 2,
-	"appear_text": "",
+	"appear_text": "大洼X",
 	"appear_time": 10,
 	"disappear_time": 100,
 	"appear_color": ['#fff', '#F4F4F4'],
