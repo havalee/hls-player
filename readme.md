@@ -3,7 +3,8 @@
 # 文件/文件夹说明
 文件 | 说明
 :-: | :-: 
-TcPlayer-2.3.2_hava.js | 基于TcPlayer-2.3.2改造后带有hls加密\倍速\防盗录的tcplayer文件,不能直接使用,仅用于参考
+TcPlayer-2.3.2_hava.js | 基于TcPlayer-2.3.2改造后倍速\防盗录的tcplayer文件,可直接使用,仅用于参考
+hls.0.12.4_hava.js | 基于hls.0.12.4.js改造后带有hls加密hls.js文件,不可直接使用,仅用于参考
 # 使用说明
 ## 增加参数&说明
 参数 | 类型 | 默认值 | 参数说明
@@ -19,9 +20,9 @@ appear_fontsize_max | Number | 22 | 防录屏文字出现时字体的最大值
 
 ## hls自定义加密
 - 加入m3u8索引文件的自定义加密方式
-  - hls.min.0.12.4_hava.js文件中定位'解密操作'字样,加入自定义的解密方式,将解密后的m3u8索引字符串赋值给u
+  - hls.0.12.4_hava.js文件中定位'解密操作'字样,加入自定义的解密方式,将解密后的m3u8索引字符串赋值给u
 - 修改tcplayer中调用的hls.js文件地址
-  - TcPlayer-2.3.2_encrypt_hava.js文件中定位'hls.js文件地址'字样,将地址改为自己的hls文件地址即可
+  - TcPlayer-2.3.2_encrypt_hava.js文件中定位'hls.js文件地址'字样,将"f.CDNPath + r"改为自己的hls文件地址即可
 
 ## 使用示例
 

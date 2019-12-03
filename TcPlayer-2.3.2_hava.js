@@ -1281,7 +1281,8 @@
             this.__type = t, this.el.src = e
           } else {
             var n = this, r = w[this.options.hls] || w["0.7.1"];
-            i ? (this.__type = f.VideoType.M3U8, "undefined" == typeof window.Hls ? h.loadScript(f.unifyProtocol("https://oss2.platform.weekweekup.cn/assets/videoJs/tcplayer/hls.min.0.12.4.js"), function () {
+            // 如需自定义加密,则将f.CDNPath + r改为自定义的hls.js文件地址
+            i ? (this.__type = f.VideoType.M3U8, "undefined" == typeof window.Hls ? h.loadScript(f.unifyProtocol(f.CDNPath + r), function () {
               n.__hlsLoaded.call(n, e)
             }) : this.__hlsLoaded(e)) : o && (this.__type = f.VideoType.FLV, "undefined" == typeof window.flvjs ? h.loadScript(f.unifyProtocol(f.CDNPath + "libs/flv.min.1.5.js"), function () {
               n.__flvLoaded.call(n, e)
