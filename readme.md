@@ -23,7 +23,7 @@ appear_fontsize_max | Number | 22 | 防录屏文字出现时字体的最大值
 - 修改tcplayer中调用的hls.js文件地址
   - TcPlayer-2.3.2_encrypt_hava.js文件中定位'hls.js文件地址'字样,将地址改为自己的hls文件地址即可
 
-- 使用示例
+## 使用示例
 
 ```javascript
 var player = new TcPlayer('id_test_video', {
