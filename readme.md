@@ -20,7 +20,7 @@ appear_fontsize_max | Number | 22 | 防录屏文字出现时字体的最大值
 
 ## 增加方法&说明
 方法 | 参数 | 返回值 | 说明 | 示例
-:-: | :-: | :-: | :-:
+:-: | :-: | :-: | :-: | :-:
 currentRate() | 无 | {int} | 获取当前的倍速 | player.currentRate()
 
 ## hls自定义加密
