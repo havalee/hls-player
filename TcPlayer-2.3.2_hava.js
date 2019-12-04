@@ -2685,7 +2685,8 @@
           }
           return this.el.appendChild(this.container), e.prototype.render.call(this, t)
         }, t.prototype.setup = function () {
-          this.on("click", this.onClick), this.on("mouseenter", this.onMouseEnter), this.on("mouseleave", this.onMouseLeave)
+          // 在初始化时加入修改倍速函数_switchRate,切换到当前倍速
+          this.player._switchRate(this.options.curRate), this.on("click", this.onClick), this.on("mouseenter", this.onMouseEnter), this.on("mouseleave", this.onMouseLeave)
         }, t.prototype.onClick = function (e) {
           var t = e.target.getAttribute("data-def"),f = this.options.rates;
           // 修改点击函数,将_switchClarity改为自定义的_switchRate
