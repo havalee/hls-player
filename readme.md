@@ -10,7 +10,7 @@ hls.0.12.4_hava.js | 基于hls.0.12.4.js改造后带有hls加密hls.js文件,不
 参数 | 类型 | 默认值 | 参数说明
 :-: | :-: | :-: | :-:
 rates | Array | [2, 1.75, 1.5, 1.25, 1, 0.75, 0.5] |　倍速数组
-curRate | Number | 4 | 默认倍速
+curRate | Number | 1 | 默认倍速
 appear_text | String | 无 | 防录屏文字,无则表示不出现防录屏文字
 appear_time | Number | 10 | 防录屏文字出现是时长最大值
 disappear_time | Number | 100 | 防录屏文字消失的时长最大值
