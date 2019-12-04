@@ -131,8 +131,6 @@
     var h = i(1), d = o(h), f = i(2), y = (o(f), i(3)), A = o(y), v = i(4), m = o(v), g = i(5), w = m.MSG,
       b = {mobile: ["m3u8", "mp4"], pc: ["rtmp", "flv", "m3u8", "mp4"]}, M = ["od", "hd", "sd"];
     t.TcPlayer = function (e) {
-      // 当前倍速,防止切换视频或清晰度后倍速被还原
-      var cucurate;
 
       function t(i, o) {
         n(this, t);
@@ -169,8 +167,8 @@
           preload: o.preload || "auto",
           hlsConfig: o.hlsConfig,
           flvConfig: o.flvConfig,
-          // curRateIndex表示当前倍速的索引
-          curRateIndex: o.curRateIndex || "4",
+          // curRate表示当前倍速
+          curRate: o.curRate ? o.curRate : 1,
           // rates表示倍速数组
           rates: o.rates ? o.rates : [2, 1.75, 1.5, 1.25, 1.0, 0.75, 0.5],
           // 防录屏文字,无则表示不出现防录屏文字
@@ -198,12 +196,12 @@
         });
         m.sub(w.MetaLoaded, "*", r, this);
         // 切换清晰度后依旧保持原有的倍速
-        document.querySelector("video").playbackRate = cucurate
+        document.querySelector("video").playbackRate = this.options.curRate;
       }, t.prototype._switchRate = function (e) {
         // 自定义的切换倍速的函数
         e = e || 1;
-        cucurate = e;
-        document.querySelector("video").playbackRate = cucurate
+        this.options.curRate = e;
+        document.querySelector("video").playbackRate = e;
       }, t.prototype.switchClarity = function (e) {
         this.claritySwitcher ? this.claritySwitcher.setClarity(e) : this._switchClarity(e)
       }, t.prototype.handleMsg = function (t) {
@@ -2676,18 +2674,18 @@
 
         return a(t, e), t.prototype.render = function (t) {
           this.show = !1, this.createEl("div", {"class": "vcp-clarityswitcher"}), this.current = p.createEl("a", {"class": "vcp-vertical-switcher-current"}), this.container = p.createEl("div", {"class": "vcp-vertical-switcher-container"}), this.items = [], this.currentItem = "";
-          // curRateIndex为配置中的当前倍速的索引 rates为倍速数组
-          var i = this.options.curRateIndex, f = this.options.rates;
+          // curRate为配置中的当前倍速 rates为倍速数组
+          var i = this.options.curRate, f = this.options.rates;
           this.current.innerHTML = f[i], this.el.appendChild(this.current);
           for (var o = 0; o < f.length; o++) {
             var n = p.createEl("a", {"class": "vcp-vertical-switcher-item"});
-            n.innerHTML = f[o], o == i && (p.addClass(n, "current"), this.currentItem = n), n.setAttribute("data-def", o), this.items.push(n), this.container.appendChild(n)
+            n.innerHTML = f[o], f[o] == i && (p.addClass(n, "current"), this.currentItem = n), n.setAttribute("data-def", o), this.items.push(n), this.container.appendChild(n)
           }
           return this.el.appendChild(this.container), e.prototype.render.call(this, t)
         }, t.prototype.setup = function () {
           this.on("click", this.onClick), this.on("mouseenter", this.onMouseEnter), this.on("mouseleave", this.onMouseLeave)
         }, t.prototype.onClick = function (e) {
-          var t = e.target.getAttribute("data-def");
+          var t = e.target.getAttribute("data-def"),f = this.options.rates;
           // 修改点击函数,将_switchClarity改为自定义的_switchRate
           t ? (this.current.innerHTML = f[t], p.removeClass(this.currentItem, "current"), p.addClass(e.target, "current"), this.currentItem = e.target, this.player._switchRate(f[t])) : !this.show
         }, t.prototype.onMouseLeave = function () {
