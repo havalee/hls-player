@@ -855,6 +855,8 @@
         !e["private"] && this.listener && this.listener(e)
       }, e.prototype.currentTime = function (e) {
         return this.video.currentTime(e)
+      }, e.prototype.currentRate = function (e) {
+        return this.video.options.curRate;
       }, e.prototype.duration = function () {
         return this.video.duration()
       }, e.prototype.percent = function (e) {
