@@ -3,12 +3,13 @@
 # 文件/文件夹说明
 文件 | 说明
 :-: | :-: 
-TcPlayer-2.3.2_hava.js | 基于TcPlayer-2.3.2改造后倍速\防盗录的tcplayer文件,可直接使用,仅用于参考
-hls.0.12.4_hava.js | 基于hls.0.12.4.js改造后带有hls加密hls.js文件,不可直接使用,仅用于参考
+TcPlayer-2.3.2_hava.js | 基于TcPlayer-2.3.2改造后倍速\防盗录\自定义加密的tcplayer文件,可直接使用,仅用于参考
+hls.0.12.4_hava.js | 基于hls.0.12.4.js改造后带有hls加密hls.js文件,不可直接使用;使用方式,在文件中定位'解密操作'字样,加入自定义的解密方式,将解密后的m3u8索引字符串赋值给u
 # 使用说明
 ## 增加参数&说明
 参数 | 类型 | 默认值 | 参数说明
 :-: | :-: | :-: | :-:
+encryptHls | String | 无 | 表示调用的用于解析视频的hls文件,设置该参数表示开启自定义解析(可加入自定义加密)
 rates | Array | [2, 1.75, 1.5, 1.25, 1, 0.75, 0.5] |　倍速数组
 curRate | Number | 1 | 默认倍速
 appear_text | String | 无 | 防录屏文字,无则表示不出现防录屏文字
@@ -25,9 +26,7 @@ currentRate() | 无 | {int} | 获取当前的倍速 | player.currentRate()
 
 ## hls自定义加密
 - 加入m3u8索引文件的自定义加密方式
-  - hls.0.12.4_hava.js文件中定位'解密操作'字样,加入自定义的解密方式,将解密后的m3u8索引字符串赋值给u
-- 修改tcplayer中调用的hls.js文件地址
-  - TcPlayer-2.3.2_encrypt_hava.js文件中定位'hls.js文件地址'字样,将"f.CDNPath + r"改为自己的hls文件地址即可
+  - hls.0.12.4_hava.js
 
 ## 使用示例
 
@@ -43,6 +42,7 @@ var player = new TcPlayer('id_test_video', {
         "x5_type": "h5",
         "x5_fullscreen": true,
         "x5_orientation": 2,
+    "encryptHls": "./hls.0.12.4_hava.js",
 	"rates": [2, 1.5, 1.0, 0.5],
 	"curRateIndex": 2,
 	"appear_text": "大洼X",

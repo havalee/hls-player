@@ -5350,12 +5350,9 @@
                     var l = t.status;
                     if (l >= 200 && l < 300) {
                         n.tload = Math.max(n.tfirst, a.now());
-                        var u = void 0, d = void 0;
+                        // 将解密后的m3u8索引字符串赋值给u
+                        var u = 解密操作, d = void 0;
                         d = "arraybuffer" === o.responseType ? (u = t.response).byteLength : (u = t.responseText).length, n.loaded = n.total = d;
-                        // hls.js
-                        if (t.url === m3u8接口) { // t.url表示当前接口的地址
-                            u = 解密操作;
-                        }
                         var f = {url: t.responseURL, data: u};
                         this.callbacks.onSuccess(f, n, o, t)
                     } else n.retry >= s.maxRetry || l >= 400 && l < 499 ? (i.logger.error(l + " while loading " + o.url), this.callbacks.onError({

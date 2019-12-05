@@ -167,6 +167,8 @@
           preload: o.preload || "auto",
           hlsConfig: o.hlsConfig,
           flvConfig: o.flvConfig,
+          // 表示加密的hls文件,设置该参数表示开启自定义加密
+          encryptHls: o.encryptHls,
           // curRate表示当前倍速
           curRate: o.curRate ? o.curRate : 1,
           // rates表示倍速数组
@@ -1281,8 +1283,8 @@
             this.__type = t, this.el.src = e
           } else {
             var n = this, r = w[this.options.hls] || w["0.7.1"];
-            // 如需自定义加密,则将f.CDNPath + r改为自定义的hls.js文件地址
-            i ? (this.__type = f.VideoType.M3U8, "undefined" == typeof window.Hls ? h.loadScript(f.unifyProtocol(f.CDNPath + r), function () {
+            // tcplayer.js 加入对encryptHls的判断,如果设置了encryptHls蚕食,则使用自定义的hls.js文件进行解析
+            i ? (this.__type = f.VideoType.M3U8, "undefined" == typeof window.Hls ? h.loadScript(f.unifyProtocol(this.player.options.encryptHls ? this.player.options.encryptHls :　(f.CDNPath + r)), function () {
               n.__hlsLoaded.call(n, e)
             }) : this.__hlsLoaded(e)) : o && (this.__type = f.VideoType.FLV, "undefined" == typeof window.flvjs ? h.loadScript(f.unifyProtocol(f.CDNPath + "libs/flv.min.1.5.js"), function () {
               n.__flvLoaded.call(n, e)
