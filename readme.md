@@ -24,10 +24,6 @@ appear_fontsize_max | Number | 22 | 防录屏文字出现时字体的最大值
 :-: | :-: | :-: | :-: | :-:
 currentRate() | 无 | {int} | 获取当前的倍速 | player.currentRate()
 
-## hls自定义加密
-- 加入m3u8索引文件的自定义加密方式
-  - hls.0.12.4_hava.js
-
 ## 使用示例
 
 ```javascript
@@ -38,11 +34,11 @@ var player = new TcPlayer('id_test_video', {
 	"width" :  '480',
 	"height" : '320',
 	"x5_player": true,
-        "systemFullscreen": true,
-        "x5_type": "h5",
-        "x5_fullscreen": true,
-        "x5_orientation": 2,
-    "encryptHls": "./hls.0.12.4_hava.js",
+	"systemFullscreen": true,
+	"x5_type": "h5",
+	"x5_fullscreen": true,
+	"x5_orientation": 2,
+	"encryptHls": "./hls.0.12.4_hava.js",
 	"rates": [2, 1.5, 1.0, 0.5],
 	"curRateIndex": 2,
 	"appear_text": "大洼X",
