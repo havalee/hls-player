@@ -185,6 +185,14 @@
           appear_fontsize_min: o.appear_fontsize_min ? o.appear_fontsize_min : 12,
           // 防录屏文字出现时字体的最大值
           appear_fontsize_max: o.appear_fontsize_max ? o.appear_fontsize_max : 22,
+          // 是否展示字幕
+          subtitle_display: o.subtitle_display !== !1,
+          // 字幕文件 srt类型
+          subtitle_srt: o.subtitle_srt,
+          // 字幕文件字体大小
+          subtitle_fontsize: o.subtitle_fontsize ? o.subtitle_fontsize : '16px',
+          // 全屏 -> 字幕文件字体大小
+          subtitle_fullscreen_fontsize: o.subtitle_fullscreen_fontsize ? o.subtitle_fullscreen_fontsize : '32px',
         };
         return r(this, e.call(this, a))
       }
@@ -894,7 +902,9 @@
     i(22)(o, {});
     o.locals && (e.exports = o.locals)
   }, function (e, t, i) {
-    t = e.exports = i(8)(), t.push([e.id, ".vcp-player .oneweek-video-el{position:absolute;z-index:1000;}" +
+    // 加入节点(class="oneweek-video-el")的样式,设置为绝对定位,并且将层级设置为1000,保证全屏时不被视频遮挡 |
+    // 加入节点(class="oneweek-video-subtitle")的样式,设置层级为1,保证不被视频遮挡即可,并且设置为字体为白色黑边,居中等
+    t = e.exports = i(8)(), t.push([e.id, ".vcp-player .oneweek-video-subtitle{position:absolute;z-index:1;bottom:2%;color:#fff;width:100%;text-align:center;-webkit-text-stroke:1px black;text-stroke:1px black;font-weight:bolder;}.vcp-player .oneweek-video-el{position:absolute;z-index:1000;}" +
     " .vcp-player{position:relative;z-index:0;font-family:Tahoma,\\\\5FAE\\8F6F\\96C5\\9ED1,\\u5b8b\\u4f53,Verdana,Arial,sans-serif;background-color:#000}.vcp-player video{display:block;overflow:hidden;}.vcp-fullscreen.vcp-player,.vcp-fullscreen video,body.vcp-full-window{width:100%!important;height:100%!important}body.vcp-full-window{overflow-y:auto}.vcp-full-window .vcp-player{position:fixed;left:0;top:0;z-index:2147483647}.vcp-pre-flash,.vcp-video{width:100%;height:100%}.vcp-pre-flash{z-index:999;background:#000;position:absolute;top:0;left:0}.vcp-controls-panel{position:absolute;bottom:0;width:100%;font-size:16px;height:3em;z-index:1000}.vcp-controls-panel.show{-webkit-animation:fadeIn ease .8s;animation:fadeIn ease .8s;animation-fill-mode:forwards;-webkit-animation-fill-mode:forwards}.vcp-controls-panel.hide{-webkit-animation:fadeOut ease .8s;animation:fadeOut ease .8s;animation-fill-mode:forwards;-webkit-animation-fill-mode:forwards}.vcp-panel-bg{width:100%;height:100%;position:absolute;left:0;top:0;background-color:#242424;opacity:.8;filter:alpha(opacity=80);z-index:1000}.vcp-playtoggle{cursor:pointer;position:relative;z-index:1001;width:3em;height:100%;float:left;background-image:url(" + i(9) + ");background-image:url(" + i(10) + ")\\0}.vcp-playtoggle:focus,.vcp-playtoggle:hover{background-color:#708090;opacity:.9;filter:alpha(opacity=90)}.touchable .vcp-playtoggle:hover{background-color:transparent;opacity:1}.vcp-playing .vcp-playtoggle{background-image:url(" + i(11) + ");background-image:url(" + i(12) + ")\\0}.vcp-bigplay{width:100%;height:80%;position:absolute;background-color:white\\0;filter:alpha(opacity=0);opacity:0;z-index:1000;top:0;left:0}.vcp-slider{position:relative;z-index:1001;float:left;background:#c4c4c4;height:10px;opacity:.8;filter:alpha(opacity=80);cursor:pointer}.vcp-slider .vcp-slider-track{width:0;height:100%;margin-top:0;opacity:1;filter:alpha(opacity=100);background-color:#1e90ff}.vcp-slider .vcp-slider-thumb{cursor:pointer;background-color:#fff;position:absolute;top:0;left:0;border-radius:1em!important;height:10px;margin-left:-5px;width:10px}.vcp-slider-vertical{position:relative;width:.5em;height:8em;top:-5.6em;z-index:1001;background-color:#1c1c1c;opacity:.9;filter:alpha(opacity=90);cursor:pointer}.vcp-slider-vertical .vcp-slider-track{background-color:#1275cf;width:.5em;height:100%;opacity:.8;filter:alpha(opacity=80)}.vcp-slider-vertical .vcp-slider-thumb{cursor:pointer;position:absolute;background-color:#f0f8ff;width:.8em;height:.8em;border-radius:.8em!important;margin-top:-.4em;top:0;left:-.15em}.vcp-timeline{top:-10px;left:0;height:10px;position:absolute;z-index:1001;width:100%}.vcp-timeline .vcp-slider-thumb{top:-4px}.vcp-timeline .vcp-slider{margin-top:8px;height:2px;width:100%}.vcp-timeline:hover .vcp-slider{margin-top:0;height:10px}.vcp-timeline:hover .vcp-slider-thumb{display:block;width:16px;height:16px;top:-3px;margin-left:-8px}.vcp-timelabel{display:inline-block;line-height:3em;float:left;color:#fff;padding:0 9px}.vcp-timelabel,.vcp-volume{height:3em;z-index:1001;position:relative}.vcp-volume{width:3em;cursor:pointer;float:right;background-color:transparent;opacity:.9;filter:alpha(opacity=90)}.vcp-volume-icon{background-image:url(" + i(13) + ");background-image:url(" + i(14) + ")\\0;display:inline-block;width:3em;height:3em;position:absolute;left:0;top:0}.vcp-volume-muted .vcp-volume-icon{background-image:url(" + i(15) + ");background-image:url(" + i(16) + ")\\0}.vcp-volume .vcp-slider-vertical{top:-8.4em;left:1em;display:none}.vcp-volume .vcp-slider-track{position:absolute;bottom:0}.vcp-volume:hover .vcp-slider-vertical{display:block}.vcp-volume .vcp-volume-bg{height:8.8em;width:2em;position:absolute;left:.25em;top:-8.8em;background:#242424;display:none}.vcp-volume:hover .vcp-slider-vertical,.vcp-volume:hover .vcp-volume-bg{display:block}.vcp-fullscreen-toggle{position:relative;width:3em;height:3em;float:right;cursor:pointer;z-index:1001;background-image:url(" + i(17) + ");background-image:url(" + i(18) + ")\\0}.vcp-fullscreen .vcp-fullscreen-toggle{background-image:url(" + i(19) + ");background-image:url(" + i(20) + ')\\0}.vcp-loading{box-sizing:border-box;background-clip:padding-box;width:50px;height:50px;display:none;position:absolute;top:50%;left:50%;margin:-25px 0 0 -25px;text-indent:-9999em}.vcp-loading:before{box-sizing:inherit;content:"";display:block;width:100%;height:100%;border-radius:50%;border:3px solid hsla(0,0%,100%,0);border-left-color:#fff;border-right-color:#fff;-webkit-transform:translateZ(0);transform:translateZ(0);-webkit-animation:load8 1.1s infinite linear;animation:load8 1.1s infinite linear}@-webkit-keyframes load8{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}@keyframes load8{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}.vcp-poster{position:absolute;left:0;top:0;overflow:hidden;z-index:1000;width:100%;height:100%;display:none}.vcp-poster-pic{position:relative}.vcp-poster-pic.cover,.vcp-poster-pic.default{left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}.vcp-poster-pic.cover{width:100%}.vcp-poster-pic.stretch{width:100%;height:100%}.vcp-error-tips{position:absolute;z-index:1001;width:100%;height:4.5em;left:0;top:50%;color:#ff4500;margin-top:-5.25em;text-align:center;display:none}.vcp-clarityswitcher{height:3em;width:3em;cursor:pointer;position:relative;z-index:1001;float:right;background-color:transparent;opacity:.9}.vcp-vertical-switcher-container{width:3em;position:absolute;left:0;bottom:2.4em;background:#242424;display:none}.vcp-vertical-switcher-current{display:block;color:#fff;text-align:center;line-height:3em}.vcp-vertical-switcher-item{display:block;color:#fff;text-align:center;line-height:2em}.vcp-vertical-switcher-item.current{color:#888}.vcp-share>a{width:3em;height:3em;cursor:pointer;background-image:url(' + i(21) + ");opacity:.9;display:block}.vcp-share{width:3em;height:3em;position:relative;float:right;z-index:1001}.vcp-vertical-share-container{width:auto;height:auto;position:absolute;background:rgba(36,36,36,.8);padding:.5em;overflow:hidden;display:none}@-webkit-keyframes fadeOut{0%{opacity:1}to{opacity:0}}@keyframes fadeOut{0%{opacity:1}to{opacity:0}}.fadeOut{-webkit-animation:fadeOut ease .8s;animation:fadeOut ease .8s;animation-fill-mode:forwards;-webkit-animation-fill-mode:forwards}@-webkit-keyframes fadeIn{0%{opacity:0}to{opacity:1}}@keyframes fadeIn{0%{opacity:0}to{opacity:1}}.fadeIn{-webkit-animation:fadeIn ease .8s;animation:fadeIn ease .8s;animation-fill-mode:forwards;-webkit-animation-fill-mode:forwards}", ""])
   }, function (e, t) {
     e.exports = function () {
@@ -1655,17 +1665,22 @@
     }
 
     t.__esModule = !0;
-    // i为对应的esmodule,M["default"]表示n[i(34)]个,即分辨率是第34个function,相应的,我们将倍速的放在最后,就是第40个
+    // i为对应的esmodule,M["default"]表示n[i(34)]个,即分辨率是第34个function,相应的,我们将倍速的放在最后,就是第40个,字幕还在倍速之后,就是第41个
     var l = i(24), c = n(l), u = i(28), p = n(u), h = i(29), d = n(h), f = i(30), y = i(31), A = n(y), v = i(32),
       m = n(v), g = i(33), w = n(g), b = i(34), M = n(b), I = i(4), S = i(2), E = o(S), _ = i(3), T = o(_), D = i(1),
-      L = o(D), rate = i(40), Rate = n(rate), O = function (e) {
+      L = o(D), rate = i(40), Rate = n(rate), subtitle = i(41), Subtitle = n(subtitle), O = function (e) {
         function t(i) {
           return r(this, t), s(this, e.call(this, i, "Panel"))
         }
 
         return a(t, e), t.prototype.render = function (t) {
           // 加入倍速节点,由于现有的手机浏览器都支持倍速,所以去掉了手机端判断
-          return this.createEl("div", {"class": "vcp-controls-panel"}), this.el.appendChild(E.createEl("div", {"class": "vcp-panel-bg"})), this.playToggle = new p["default"](this.player), this.playToggle.render(this.el), this.timelabel = new m["default"](this.player), this.timelabel.render(this.el), this.timeline = new A["default"](this.player), this.timeline.render(this.el), this.options.fullscreenEnabled === !0 && (this.fullscreen = new d["default"](this.player), this.fullscreen.render(this.el)), L.IS_MOBILE || (this.volume = new w["default"](this.player), this.volume.render(this.el)), this.options.videoSource && this.options.videoSource.definitions.length > 1 && (this.claritySwitcher = new M["default"](this.player), this.claritySwitcher.render(this.el)) && (this.rateSwitcher = new Rate["default"](this.player), this.rateSwitcher.render(this.el)), e.prototype.render.call(this, t)
+          // 如果配置了subtitle_srt参数,即传入了srt字幕文件的地址,则加入字幕节点
+          return this.createEl("div", {"class": "vcp-controls-panel"}), this.el.appendChild(E.createEl("div", {"class": "vcp-panel-bg"})), this.playToggle = new p["default"](this.player), this.playToggle.render(this.el), this.timelabel = new m["default"](this.player), this.timelabel.render(this.el), this.timeline = new A["default"](this.player), this.timeline.render(this.el), this.options.fullscreenEnabled === !0 && (this.fullscreen = new d["default"](this.player), this.fullscreen.render(this.el)), L.IS_MOBILE || (this.volume = new w["default"](this.player), this.volume.render(this.el)), this.options.videoSource && this.options.videoSource.definitions.length > 1
+          && (this.claritySwitcher = new M["default"](this.player), this.claritySwitcher.render(this.el))
+          && (this.rateSwitcher = new Rate["default"](this.player), this.rateSwitcher.render(this.el))
+          && (this.options.subtitle_srt ? (this.subtitleSwitcher = new Subtitle["default"](this.player), this.subtitleSwitcher.render(this.el)) : "")
+              , e.prototype.render.call(this, t)
         }, t.prototype.setup = function () {
           var e = T.bind(this, this.handleMsg);
           this.sub(f.MSG.Changing, this.volume, e), this.sub(f.MSG.Changed, this.timeline.progress, e), this.sub(I.MSG.TimeUpdate, this.player.video, e), this.sub(I.MSG.Progress, this.player.video, e), this.sub(I.MSG.MetaLoaded, this.player.video, e), this.sub(I.MSG.Pause, this.player.video, e), this.sub(I.MSG.Play, this.player.video, e), this.sub(I.MSG.Ended, this.player.video, e)
@@ -2701,6 +2716,83 @@
         // 去除了无效的setClarity函数,也可不去,对功能无影响,只是代码洁癖
         , t
       }(c["default"]);
+    t["default"] = y
+  }, function (e, t, i) {
+    function o(e) {
+      if (e && e.__esModule) {
+        return e
+      }
+      var t = {};
+      if (null != e) {
+        for (var i in e) {
+          Object.prototype.hasOwnProperty.call(e, i) && (t[i] = e[i])
+        }
+      }
+      return t["default"] = e, t
+    }
+
+    function n(e) {
+      return e && e.__esModule ? e : {"default": e}
+    }
+
+    function r(e, t) {
+      if (!(e instanceof t)) {
+        throw new TypeError("Cannot call a class as a function")
+      }
+    }
+
+    function s(e, t) {
+      if (!e) {
+        throw new ReferenceError("this hasn't been initialised - super() hasn't been called")
+      }
+      return !t || "object" != typeof t && "function" != typeof t ? e : t
+    }
+
+    function a(e, t) {
+      if ("function" != typeof t && null !== t) {
+        throw new TypeError("Super expression must either be null or a function, not " + typeof t)
+      }
+      e.prototype = Object.create(t && t.prototype, {
+        constructor: {
+          value: e,
+          enumerable: !1,
+          writable: !0,
+          configurable: !0
+        }
+      }), t && (Object.setPrototypeOf ? Object.setPrototypeOf(e, t) : e.__proto__ = t)
+    }
+
+    t.__esModule = !0;
+    // 修改f数组,为悬浮在字幕按钮上展示的列表
+    var l = i(24), c = n(l), u = i(2), p = o(u), h = i(3), d = o(h), f = ['on', 'off'],
+        y = function (e) {
+          function t(i) {
+            return r(this, t), s(this, e.call(this, i, "ClaritySwitcher"))
+          }
+
+          return a(t, e), t.prototype.render = function (t) {
+            this.show = !1, this.createEl("div", {"class": "vcp-clarityswitcher"}), this.current = p.createEl("a", {"class": "vcp-vertical-switcher-current"}), this.container = p.createEl("div", {"class": "vcp-vertical-switcher-container"}), this.items = [], this.currentItem = "";
+            // subtitle_display 表示是否开启字幕
+            var i = this.options.subtitle_display ? 0 : 1;
+            // 在底部栏直接展示字幕二字
+            this.current.innerHTML = "字幕", this.el.appendChild(this.current);
+            for (var o = 0; o < f.length; o++) {
+              var n = p.createEl("a", {"class": "vcp-vertical-switcher-item"});
+              n.innerHTML = f[o], f[o] === f[i] && (p.addClass(n, "current"), this.currentItem = n), n.setAttribute("data-def", o), this.items.push(n), this.container.appendChild(n)
+            }
+            return this.el.appendChild(this.container), e.prototype.render.call(this, t)
+          }, t.prototype.setup = function () {
+            this.on("click", this.onClick), this.on("mouseenter", this.onMouseEnter), this.on("mouseleave", this.onMouseLeave)
+          }, t.prototype.onClick = function (e) {
+            var t = e.target.getAttribute("data-def");
+            // 去掉this.current.innerHTML,即不修改在底部栏展示的字幕按钮信息,加入判断t==0 即f[t]='on'时,将subtitle_display置为true,即展示字幕
+            t ? (p.removeClass(this.currentItem, "current"), p.addClass(e.target, "current"), this.currentItem = e.target, this.options.subtitle_display = t == 0) : !this.show
+          }, t.prototype.onMouseLeave = function () {
+            this.container.style.display = "none", this.show = !1
+          }, t.prototype.onMouseEnter = function () {
+            this.container.style.display = "block", this.show = !0
+          }, t // 去除了无效的setClarity函数,也可不去,对功能无影响,只是代码洁癖
+        }(c["default"]);
     t["default"] = y
   }])
 });
