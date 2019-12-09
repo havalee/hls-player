@@ -693,6 +693,8 @@
       }
     });
     var O = t.MSG = d.MSG, C = t.browser = a, x = t.util = p, P = t.dom = c;
+    // 字幕对象的数组
+    var subtitlesArray = [], subtitleIndex = 0;
     t.Player = function () {
       function e(t) {
         r(this, e), this.options = t, this.ready = !1, this.hasPlay = !1;
@@ -705,17 +707,184 @@
         return Math.floor(Math.random() * (max - min)) + min
       }
 
+      // 字符串转浮点数
+      function toSeconds(t) {
+        var s = 0.0;
+
+        if (t) {
+          var p = t.split(':');
+          for (i = 0; i < p.length; i++) {
+            s = s * 60 + parseFloat(p[i].replace(',', '.'));
+          }
+        }
+
+        return s;
+      }
+
+      /**
+       * 把 SRT 格式的字幕文件解析为字幕的对象数组，格式为:
+       * [
+       *      {sn: "0", startTime: 0.89, endTime: 7.89, content: "这里是一系列与Hadoop↵有关的其他开源项目："},
+       *      {sn: "1", startTime: 8.38, endTime: 14.85, content: "Eclipse是一个IBM贡献到开源社区里的集成开发环境（IDE）。"}
+       * ]
+       *
+       * @param  srt 字幕文件的内容
+       * @return Array
+       */
+      function parseSrtSubtitles(srt) {
+        var subtitles = [];
+        var textSubtitles = srt.replace(/\r/g, '').split('\n\n'); // 每条字幕的信息，包含了序号，时间，字幕内容
+
+        for (var i = 0; i < textSubtitles.length; ++i) {
+          var textSubtitle = textSubtitles[i].split('\n');
+
+          if (textSubtitle.length >= 2) {
+            var sn = textSubtitle[0], textSubtitleArray = textSubtitle[1].trim().split(' --> '); // 字幕的序号
+            var startTime = toSeconds(textSubtitleArray[0]); // 字幕的开始时间
+            var endTime = toSeconds(textSubtitleArray[1]); // 字幕的结束时间
+            var content = textSubtitle[2]; // 字幕的内容
+
+            // 字幕可能有多行
+            if (textSubtitle.length > 2) {
+              for (var j = 3; j < textSubtitle.length; j++) {
+                content += '\n' + textSubtitle[j];
+              }
+            }
+
+            // 字幕对象
+            var subtitle = {
+              sn: sn,
+              startTime: startTime,
+              endTime: endTime,
+              content: content
+            };
+
+            subtitles.push(subtitle);
+          }
+        }
+
+        return subtitles;
+      }
+
+      // 获取当前时间对应的字幕,存在当前时间没有字幕的情况
+      function getCurrentSubtitle(currentTime, display) {
+        // 如果不展示字幕,则不显示字幕
+        if (!display) {
+          return "";
+        }
+        let item = subtitlesArray[subtitleIndex];
+        if (item.startTime <= currentTime && currentTime < item.endTime) {
+          return item.content;
+        }
+        // 按顺序播放,大于当前字幕结束时间时,会小于下一个字幕的结束时间
+        if (currentTime > item.endTime) {
+          subtitleIndex ++;
+          item = subtitlesArray[subtitleIndex];
+          if (currentTime < item.startTime) {
+            // 在[current.endTime, (current+1).startTime)区间内没有字幕
+            return "";
+          } else if (item.startTime <= currentTime && currentTime < item.endTime) {
+            return item.content;
+          }
+        }
+        // 判断当前的时间是否还在第一句话前
+        if (currentTime < subtitlesArray[0].startTime) {
+          return "";
+        }
+        // 判断当前的时间是否还在第一句话
+        if (currentTime < subtitlesArray[0].endTime) {
+          return subtitlesArray[0].content;
+        }
+        const length = subtitlesArray.length;
+        // 判断当前的时间是否已经大于了字幕最后一句话的结束时间
+        if (currentTime > subtitlesArray[length - 1].endTime) {
+          return "";
+        }
+        // 跨度查询,减少查询时间
+        const step = 10;
+        if (length <= step) {
+          for (let i = 0; i < length; i++) {
+            const item = subtitlesArray[i];
+            if (item.startTime <= currentTime && currentTime < item.endTime) {
+              subtitleIndex = i;
+              return item.content;
+            }
+            // 按顺序播放,大于当前字幕结束时间时,会小于下一个字幕的结束时间
+            if (currentTime > item.endTime && currentTime < subtitlesArray[i + 1].startTime) {
+              // 在[current.endTime, (current+1).startTime)区间内没有字幕
+              return "";
+            }
+          }
+        } else {
+          for (let i = 0; i < length; i += step) {
+            // 判断当前字幕的结束时间是否大于了当前时间
+            if (currentTime < subtitlesArray[i].endTime) {
+              // 是的话,则进行小范围遍历,直到找到对应的索引
+              for (let j = i - step; j < i; j++) {
+                const item = subtitlesArray[j];
+                if (item.startTime <= currentTime && currentTime < item.endTime) {
+                  subtitleIndex = j;
+                  return item.content;
+                }
+                // 按顺序播放,大于当前字幕结束时间时,会小于下一个字幕的结束时间
+                if (currentTime > item.endTime && currentTime < subtitlesArray[j + 1].startTime) {
+                  // 在[current.endTime, (current+1).startTime)区间内没有字幕
+                  return "";
+                }
+              }
+            }
+          }
+          // 若没有找到对应的时间索引,则所当前时间处于[length-10:length-1]
+          for (let i = length - step; i < length; i++) {
+            const item = subtitlesArray[i];
+            if (item.startTime <= currentTime && currentTime < item.endTime) {
+              subtitleIndex = i;
+              return item.content;
+            }
+            // 按顺序播放,大于当前字幕结束时间时,会小于下一个字幕的结束时间
+            if (currentTime > item.endTime && currentTime < subtitlesArray[i + 1].startTime) {
+              // 在[current.endTime, (current+1).startTime)区间内没有字幕
+              return "";
+            }
+          }
+        }
+      }
+
       return e.prototype.render = function (e) {
-        var t = "vcp-player", o = this.options, spanElment = P.createEl("span", {"class": "oneweek-video-el"});
+        var t = "vcp-player", o = this.options, spanElment = P.createEl("span", {"class": "oneweek-video-el"}),
+            subtitleElment = P.createEl("span", {"class": "oneweek-video-subtitle", "id": "oneweek-video-subtitle"});
+        // 加载字幕
+        if (o.subtitle_srt) {
+          subtitleElment.style.fontSize = o.subtitle_fontsize;
+          // 防止onreadystatechange被调用多次
+          let hasReceived = false;
+          const httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
+          httpRequest.open('GET', o.subtitle_srt);//第二步：打开连接  将请求参数写在url中
+          httpRequest.send();//第三步：发送请求  将请求参数写在URL中
+          /**
+           * 获取数据后的处理程序
+           */
+          httpRequest.onreadystatechange = function () {
+            if (httpRequest.status === 200 && httpRequest.responseText && !hasReceived) {
+              hasReceived = true;
+              subtitlesArray = parseSrtSubtitles(httpRequest.responseText);
+              subtitleElment.innerHTML = getCurrentSubtitle(i.currentTime(), o.subtitle_display);
+              // 定时切换字幕
+              setInterval(() => {
+                subtitleElment.innerHTML = getCurrentSubtitle(i.currentTime(), o.subtitle_display);
+              }, 500);
+            }
+          };
+        }
+
+
         // 如果存在appear_text则进行文字悬浮
         if (o.appear_text) {
           spanElment.innerHTML = o.appear_text;
           spanElment.style.display = "none";
-          const appearColorLength = o.appear_color.length;
-          const appearColor = o.appear_color;
-          const appearFontsizeMin = o.appear_fontsize_min;
-          const appearFontsizeMax = o.appear_fontsize_max;
-          const appearTime = o.appear_time, disappearTime = o.disappear_time;
+          const appearColorLength = o.appear_color.length, appearColor = o.appear_color,
+              appearFontsizeMin = o.appear_fontsize_min, appearFontsizeMax = o.appear_fontsize_max,
+              appearTime = o.appear_time, disappearTime = o.disappear_time;
           let showStudengNumPositionX, showStudengNumPositionY;
           // 设置出现随机字符的周期 -> 出现最大时长+消失的最大时长
           const interTime = (appearTime + disappearTime) * 1000;
@@ -750,6 +919,7 @@
         if (C.TOUCH_ENABLED && (t += " touchable"), this.el = P.createEl("div", {"class": t}),
             // 添加防盗录节点span
             this.el.appendChild(spanElment),
+            this.el.appendChild(subtitleElment),
             e.appendChild(this.el), this.errortips = new T["default"](this), this.errortips.render(this.el), this.loading = new E["default"](this), this.loading.render(this.el), this.options.width = this.options.width || e.offsetWidth, this.options.height = this.options.height || e.offsetHeight, this.size(this.options.width, this.options.height), !this.verifyOptions()) {
           return this.listener({type: "error", code: 5}), x.console.error("create failed")
         }
