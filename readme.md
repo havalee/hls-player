@@ -64,3 +64,4 @@ var player = new TcPlayer("id_test_video", {
 - [tcplayer源码改造第二弹 -> 加入倍速播放](https://blog.csdn.net/z13192905903/article/details/102862664)
 - [tcplayer源码改造第三弹 -> 防盗录](https://blog.csdn.net/z13192905903/article/details/103366173)
 - [tcplayer 源码改造第四弹 -> 字幕(srt)](https://blog.csdn.net/z13192905903/article/details/103424010)
+- [tcplayer源码改造第五弹 -> 兼容sarafi/遨游](https://blog.csdn.net/z13192905903/article/details/103851286)
