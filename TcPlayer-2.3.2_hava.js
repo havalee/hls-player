@@ -129,9 +129,8 @@
 
     t.__esModule = !0, t.TcPlayer = void 0;
     var h = i(1), d = o(h), f = i(2), y = (o(f), i(3)), A = o(y), v = i(4), m = o(v), g = i(5), w = m.MSG,
-      b = {mobile: ["m3u8", "mp4"], pc: ["rtmp", "flv", "m3u8", "mp4"]}, M = ["od", "hd", "sd"];
+        b = {mobile: ["m3u8", "mp4"], pc: ["rtmp", "flv", "m3u8", "mp4"]}, M = ["od", "hd", "sd"];
     t.TcPlayer = function (e) {
-
       function t(i, o) {
         n(this, t);
         var s = l(o);
@@ -178,9 +177,9 @@
           // 防录屏文字出现是时长最大值
           appear_time: o.appear_time ? o.appear_time : 10,
           // 防录屏文字消失的时长最大值
-          disappear_time: o.disappear_time ? o.appear_time : 100,
+          disappear_time: o.disappear_time ? o.disappear_time : 100,
           // 防录屏文字出现时的颜色
-          appear_color: o.appear_color ? o.appear_color : ['#fff', '#000'],
+          appear_color: o.appear_color ? o.appear_color : ["#fff", "#000"],
           // 防录屏文字出现时字体的最小值
           appear_fontsize_min: o.appear_fontsize_min ? o.appear_fontsize_min : 12,
           // 防录屏文字出现时字体的最大值
@@ -190,9 +189,9 @@
           // 字幕文件 srt类型
           subtitle_srt: o.subtitle_srt,
           // 字幕文件字体大小
-          subtitle_fontsize: o.subtitle_fontsize ? o.subtitle_fontsize : '16px',
+          subtitle_fontsize: o.subtitle_fontsize ? o.subtitle_fontsize : "16px",
           // 全屏 -> 字幕文件字体大小
-          subtitle_fullscreen_fontsize: o.subtitle_fullscreen_fontsize ? o.subtitle_fullscreen_fontsize : '32px',
+          subtitle_fullscreen_fontsize: o.subtitle_fullscreen_fontsize ? o.subtitle_fullscreen_fontsize : "32px",
         };
         return r(this, e.call(this, a))
       }
@@ -221,35 +220,35 @@
   }, function (e, t) {
     t.__esModule = !0;
     var i = window.navigator.userAgent, o = /AppleWebKit\/([\d.]+)/i.exec(i), n = o ? parseFloat(o.pop()) : null,
-      r = t.IS_IPAD = /iPad/i.test(i), s = t.IS_IPHONE = /iPhone/i.test(i) && !r, a = t.IS_IPOD = /iPod/i.test(i),
-      l = t.IS_IOS = s || r || a, c = (t.IOS_VERSION = function () {
-        var e = i.match(/OS (\d+)_/i);
-        if (e && e[1]) {
-          return e[1]
-        }
-      }(), t.IS_MAC = /Mac/i.test(i), t.IS_ANDROID = /Android/i.test(i)), u = t.ANDROID_VERSION = function () {
-        var e, t, o = i.match(/Android (\d+)(?:\.(\d+))?(?:\.(\d+))*/i);
-        return o ? (e = o[1] && parseFloat(o[1]), t = o[2] && parseFloat(o[2]), e && t ? parseFloat(o[1] + "." + o[2]) : e ? e : null) : null
-      }(),
-      p = (t.IS_OLD_ANDROID = c && /webkit/i.test(i) && u < 2.3, t.IS_NATIVE_ANDROID = c && u < 5 && n < 537, t.IS_FIREFOX = /Firefox/i.test(i), t.IS_EDGE = /Edge/i.test(i)),
-      h = t.IS_CHROME = !p && /Chrome/i.test(i), d = t.IS_SAFARI = !p && !h && /Safari/i.test(i),
-      f = (t.SAFARI_VERSION = function () {
-        if (!d) {
-          return null
-        }
-        var e = /version\/([\d.]+)/i, t = i.match(e);
-        return t ? t[1] : void 0
-      }(), t.IS_IE8 = /MSIE\s8\.0/.test(i), t.IS_IE9 = /MSIE\s9\.0/.test(i), t.IS_IE = /(msie\s|trident.*rv:)([\w.]+)/i.test(i)),
-      y = (t.IE_VERSION = function () {
-        var e = /(msie\s|trident.*rv:)([\w.]+)/i, t = i.match(e);
-        return t ? t[2] : null
-      }(), t.TOUCH_ENABLED = !!("ontouchstart" in window || window.DocumentTouch && document instanceof window.DocumentTouch), t.BACKGROUND_SIZE_SUPPORTED = "backgroundSize" in document.createElement("video").style, t.HASVIDEO = !!document.createElement("video").canPlayType, t.IS_X5TBS = /TBS\/\d+/i.test(i)),
-      A = (t.TBS_VERSION = function () {
-        var e = i.match(/TBS\/(\d+)/i);
-        if (e && e[1]) {
-          return e[1]
-        }
-      }(), t.IS_MQQB = !y && /MQQBrowser\/\d+/i.test(i), t.IS_QQB = !y && / QQBrowser\/\d+/i.test(i), t.IS_WECHAT = /(micromessenger|webbrowser)/i.test(i), t.IS_MQQ = / QQ\/\d+/i.test(i), t.IS_MOBILE = c || l, t.IS_FILE_PROTOCOL = /file:/.test(location.protocol), t.FLASH_VERSION = null);
+        r = t.IS_IPAD = /iPad/i.test(i), s = t.IS_IPHONE = /iPhone/i.test(i) && !r, a = t.IS_IPOD = /iPod/i.test(i),
+        l = t.IS_IOS = s || r || a, c = (t.IOS_VERSION = function () {
+          var e = i.match(/OS (\d+)_/i);
+          if (e && e[1]) {
+            return e[1]
+          }
+        }(), t.IS_MAC = /Mac/i.test(i), t.IS_ANDROID = /Android/i.test(i)), u = t.ANDROID_VERSION = function () {
+          var e, t, o = i.match(/Android (\d+)(?:\.(\d+))?(?:\.(\d+))*/i);
+          return o ? (e = o[1] && parseFloat(o[1]), t = o[2] && parseFloat(o[2]), e && t ? parseFloat(o[1] + "." + o[2]) : e ? e : null) : null
+        }(),
+        p = (t.IS_OLD_ANDROID = c && /webkit/i.test(i) && u < 2.3, t.IS_NATIVE_ANDROID = c && u < 5 && n < 537, t.IS_FIREFOX = /Firefox/i.test(i), t.IS_EDGE = /Edge/i.test(i)),
+        h = t.IS_CHROME = !p && /Chrome/i.test(i), d = t.IS_SAFARI = !p && !h && /Safari/i.test(i),
+        f = (t.SAFARI_VERSION = function () {
+          if (!d) {
+            return null
+          }
+          var e = /version\/([\d.]+)/i, t = i.match(e);
+          return t ? t[1] : void 0
+        }(), t.IS_IE8 = /MSIE\s8\.0/.test(i), t.IS_IE9 = /MSIE\s9\.0/.test(i), t.IS_IE = /(msie\s|trident.*rv:)([\w.]+)/i.test(i)),
+        y = (t.IE_VERSION = function () {
+          var e = /(msie\s|trident.*rv:)([\w.]+)/i, t = i.match(e);
+          return t ? t[2] : null
+        }(), t.TOUCH_ENABLED = !!("ontouchstart" in window || window.DocumentTouch && document instanceof window.DocumentTouch), t.BACKGROUND_SIZE_SUPPORTED = "backgroundSize" in document.createElement("video").style, t.HASVIDEO = !!document.createElement("video").canPlayType, t.IS_X5TBS = /TBS\/\d+/i.test(i)),
+        A = (t.TBS_VERSION = function () {
+          var e = i.match(/TBS\/(\d+)/i);
+          if (e && e[1]) {
+            return e[1]
+          }
+        }(), t.IS_MQQB = !y && /MQQBrowser\/\d+/i.test(i), t.IS_QQB = !y && / QQBrowser\/\d+/i.test(i), t.IS_WECHAT = /(micromessenger|webbrowser)/i.test(i), t.IS_MQQ = / QQ\/\d+/i.test(i), t.IS_MOBILE = c || l, t.IS_FILE_PROTOCOL = /file:/.test(location.protocol), t.FLASH_VERSION = null);
     t.IS_ENABLED_FLASH = function () {
       var e;
       if (document.all || f) {
@@ -275,9 +274,9 @@
       return !1
     }(), t.IS_ENABLED_MSE = function () {
       var e = window.MediaSource = window.MediaSource || window.WebKitMediaSource,
-        t = window.SourceBuffer = window.SourceBuffer || window.WebKitSourceBuffer,
-        i = e && "function" == typeof e.isTypeSupported && e.isTypeSupported('video/mp4; codecs="avc1.42E01E,mp4a.40.2"'),
-        o = !t || t.prototype && "function" == typeof t.prototype.appendBuffer && "function" == typeof t.prototype.remove;
+          t = window.SourceBuffer = window.SourceBuffer || window.WebKitSourceBuffer,
+          i = e && "function" == typeof e.isTypeSupported && e.isTypeSupported('video/mp4; codecs="avc1.42E01E,mp4a.40.2"'),
+          o = !t || t.prototype && "function" == typeof t.prototype.appendBuffer && "function" == typeof t.prototype.remove;
       if (!l) {
         return i && o
       }
@@ -295,8 +294,8 @@
 
     function n() {
       var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "div",
-        t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
-        i = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {}, o = document.createElement(e);
+          t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
+          i = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {}, o = document.createElement(e);
       for (var n in t) {
         if (t.hasOwnProperty(n)) {
           var r = t[n];
@@ -339,14 +338,14 @@
         return {left: 0, top: 0}
       }
       var i = document.documentElement, o = document.body, n = i.clientLeft || o.clientLeft || 0,
-        r = window.pageXOffset || o.scrollLeft, s = t.left + r - n, a = i.clientTop || o.clientTop || 0,
-        l = window.pageYOffset || o.scrollTop, c = t.top + l - a;
+          r = window.pageXOffset || o.scrollLeft, s = t.left + r - n, a = i.clientTop || o.clientTop || 0,
+          l = window.pageYOffset || o.scrollTop, c = t.top + l - a;
       return {left: Math.round(s), top: Math.round(c)}
     }
 
     function h(e, t, i) {
       var o = {}, n = i || p(e), r = e.offsetWidth, s = e.offsetHeight, a = n.top, l = n.left, c = t.pageY || t.clientY,
-        u = t.pageX || t.clientX;
+          u = t.pageX || t.clientX;
       return t.changedTouches && (u = t.changedTouches[0].pageX, c = t.changedTouches[0].pageY), o.y = Math.max(0, Math.min(1, (a - c + s) / s)), o.x = Math.max(0, Math.min(1, (u - l) / r)), o
     }
 
@@ -683,8 +682,8 @@
 
     t.__esModule = !0, t.Player = t.dom = t.util = t.browser = t.MSG = void 0, i(6);
     var s = i(1), a = n(s), l = i(2), c = n(l), u = i(3), p = n(u), h = i(4), d = n(h), f = i(23), y = o(f), A = i(26),
-      v = o(A), m = i(27), g = o(m), w = i(35), b = o(w), M = i(36), I = o(M), S = i(37), E = o(S), _ = i(38), T = o(_),
-      D = i(39), L = o(D);
+        v = o(A), m = i(27), g = o(m), w = i(35), b = o(w), M = i(36), I = o(M), S = i(37), E = o(S), _ = i(38), T = o(_),
+        D = i(39), L = o(D);
     window.console || (window.console = {
       log: function () {
       }, error: function () {
@@ -945,7 +944,7 @@
           n = e, r = t
         } else {
           var s = this.video ? this.video.videoWidth() : this.options.width,
-            a = this.video ? this.video.videoHeight() : this.options.height;
+              a = this.video ? this.video.videoHeight() : this.options.height;
           if (n = e, r = t, s && a) {
             var l = s / a;
             "fit" == i && (n = e, r = n / l, r > t && (n *= t / r, r = t))
@@ -1021,6 +1020,11 @@
           case O.FullScreen:
             var t = this;
             setTimeout(function () {
+              if (e.detail.isFullscreen) {
+                document.getElementById('oneweek-video-subtitle').style.fontSize = t.options.subtitle_fullscreen_fontsize;
+              } else {
+                document.getElementById('oneweek-video-subtitle').style.fontSize = t.options.subtitle_fontsize;
+              }
               P.toggleClass(t.el, "vcp-fullscreen", e.detail.isFullscreen)
             }, 0);
             break;
@@ -1074,7 +1078,8 @@
   }, function (e, t, i) {
     // 加入节点(class="oneweek-video-el")的样式,设置为绝对定位,并且将层级设置为1000,保证全屏时不被视频遮挡 |
     // 加入节点(class="oneweek-video-subtitle")的样式,设置层级为1,保证不被视频遮挡即可,并且设置为字体为白色黑边,居中等
-    t = e.exports = i(8)(), t.push([e.id, ".vcp-player .oneweek-video-subtitle{position:absolute;z-index:1;bottom:2%;color:#fff;width:100%;text-align:center;-webkit-text-stroke:1px black;text-stroke:1px black;font-weight:bolder;}.vcp-player .oneweek-video-el{position:absolute;z-index:1000;}" +
+    t = e.exports = i(8)(), t.push([e.id, ".vcp-player .oneweek-video-subtitle{position:absolute;z-index:1;bottom:2%;color:#fff;width:100%;text-align:center;-webkit-text-stroke:1px black;text-stroke:1px black;font-weight:bolder;}" +
+    ".vcp-player .oneweek-video-el{position:absolute;z-index:1000;}" +
     " .vcp-player{position:relative;z-index:0;font-family:Tahoma,\\\\5FAE\\8F6F\\96C5\\9ED1,\\u5b8b\\u4f53,Verdana,Arial,sans-serif;background-color:#000}.vcp-player video{display:block;overflow:hidden;}.vcp-fullscreen.vcp-player,.vcp-fullscreen video,body.vcp-full-window{width:100%!important;height:100%!important}body.vcp-full-window{overflow-y:auto}.vcp-full-window .vcp-player{position:fixed;left:0;top:0;z-index:2147483647}.vcp-pre-flash,.vcp-video{width:100%;height:100%}.vcp-pre-flash{z-index:999;background:#000;position:absolute;top:0;left:0}.vcp-controls-panel{position:absolute;bottom:0;width:100%;font-size:16px;height:3em;z-index:1000}.vcp-controls-panel.show{-webkit-animation:fadeIn ease .8s;animation:fadeIn ease .8s;animation-fill-mode:forwards;-webkit-animation-fill-mode:forwards}.vcp-controls-panel.hide{-webkit-animation:fadeOut ease .8s;animation:fadeOut ease .8s;animation-fill-mode:forwards;-webkit-animation-fill-mode:forwards}.vcp-panel-bg{width:100%;height:100%;position:absolute;left:0;top:0;background-color:#242424;opacity:.8;filter:alpha(opacity=80);z-index:1000}.vcp-playtoggle{cursor:pointer;position:relative;z-index:1001;width:3em;height:100%;float:left;background-image:url(" + i(9) + ");background-image:url(" + i(10) + ")\\0}.vcp-playtoggle:focus,.vcp-playtoggle:hover{background-color:#708090;opacity:.9;filter:alpha(opacity=90)}.touchable .vcp-playtoggle:hover{background-color:transparent;opacity:1}.vcp-playing .vcp-playtoggle{background-image:url(" + i(11) + ");background-image:url(" + i(12) + ")\\0}.vcp-bigplay{width:100%;height:80%;position:absolute;background-color:white\\0;filter:alpha(opacity=0);opacity:0;z-index:1000;top:0;left:0}.vcp-slider{position:relative;z-index:1001;float:left;background:#c4c4c4;height:10px;opacity:.8;filter:alpha(opacity=80);cursor:pointer}.vcp-slider .vcp-slider-track{width:0;height:100%;margin-top:0;opacity:1;filter:alpha(opacity=100);background-color:#1e90ff}.vcp-slider .vcp-slider-thumb{cursor:pointer;background-color:#fff;position:absolute;top:0;left:0;border-radius:1em!important;height:10px;margin-left:-5px;width:10px}.vcp-slider-vertical{position:relative;width:.5em;height:8em;top:-5.6em;z-index:1001;background-color:#1c1c1c;opacity:.9;filter:alpha(opacity=90);cursor:pointer}.vcp-slider-vertical .vcp-slider-track{background-color:#1275cf;width:.5em;height:100%;opacity:.8;filter:alpha(opacity=80)}.vcp-slider-vertical .vcp-slider-thumb{cursor:pointer;position:absolute;background-color:#f0f8ff;width:.8em;height:.8em;border-radius:.8em!important;margin-top:-.4em;top:0;left:-.15em}.vcp-timeline{top:-10px;left:0;height:10px;position:absolute;z-index:1001;width:100%}.vcp-timeline .vcp-slider-thumb{top:-4px}.vcp-timeline .vcp-slider{margin-top:8px;height:2px;width:100%}.vcp-timeline:hover .vcp-slider{margin-top:0;height:10px}.vcp-timeline:hover .vcp-slider-thumb{display:block;width:16px;height:16px;top:-3px;margin-left:-8px}.vcp-timelabel{display:inline-block;line-height:3em;float:left;color:#fff;padding:0 9px}.vcp-timelabel,.vcp-volume{height:3em;z-index:1001;position:relative}.vcp-volume{width:3em;cursor:pointer;float:right;background-color:transparent;opacity:.9;filter:alpha(opacity=90)}.vcp-volume-icon{background-image:url(" + i(13) + ");background-image:url(" + i(14) + ")\\0;display:inline-block;width:3em;height:3em;position:absolute;left:0;top:0}.vcp-volume-muted .vcp-volume-icon{background-image:url(" + i(15) + ");background-image:url(" + i(16) + ")\\0}.vcp-volume .vcp-slider-vertical{top:-8.4em;left:1em;display:none}.vcp-volume .vcp-slider-track{position:absolute;bottom:0}.vcp-volume:hover .vcp-slider-vertical{display:block}.vcp-volume .vcp-volume-bg{height:8.8em;width:2em;position:absolute;left:.25em;top:-8.8em;background:#242424;display:none}.vcp-volume:hover .vcp-slider-vertical,.vcp-volume:hover .vcp-volume-bg{display:block}.vcp-fullscreen-toggle{position:relative;width:3em;height:3em;float:right;cursor:pointer;z-index:1001;background-image:url(" + i(17) + ");background-image:url(" + i(18) + ")\\0}.vcp-fullscreen .vcp-fullscreen-toggle{background-image:url(" + i(19) + ");background-image:url(" + i(20) + ')\\0}.vcp-loading{box-sizing:border-box;background-clip:padding-box;width:50px;height:50px;display:none;position:absolute;top:50%;left:50%;margin:-25px 0 0 -25px;text-indent:-9999em}.vcp-loading:before{box-sizing:inherit;content:"";display:block;width:100%;height:100%;border-radius:50%;border:3px solid hsla(0,0%,100%,0);border-left-color:#fff;border-right-color:#fff;-webkit-transform:translateZ(0);transform:translateZ(0);-webkit-animation:load8 1.1s infinite linear;animation:load8 1.1s infinite linear}@-webkit-keyframes load8{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}@keyframes load8{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}.vcp-poster{position:absolute;left:0;top:0;overflow:hidden;z-index:1000;width:100%;height:100%;display:none}.vcp-poster-pic{position:relative}.vcp-poster-pic.cover,.vcp-poster-pic.default{left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}.vcp-poster-pic.cover{width:100%}.vcp-poster-pic.stretch{width:100%;height:100%}.vcp-error-tips{position:absolute;z-index:1001;width:100%;height:4.5em;left:0;top:50%;color:#ff4500;margin-top:-5.25em;text-align:center;display:none}.vcp-clarityswitcher{height:3em;width:3em;cursor:pointer;position:relative;z-index:1001;float:right;background-color:transparent;opacity:.9}.vcp-vertical-switcher-container{width:3em;position:absolute;left:0;bottom:2.4em;background:#242424;display:none}.vcp-vertical-switcher-current{display:block;color:#fff;text-align:center;line-height:3em}.vcp-vertical-switcher-item{display:block;color:#fff;text-align:center;line-height:2em}.vcp-vertical-switcher-item.current{color:#888}.vcp-share>a{width:3em;height:3em;cursor:pointer;background-image:url(' + i(21) + ");opacity:.9;display:block}.vcp-share{width:3em;height:3em;position:relative;float:right;z-index:1001}.vcp-vertical-share-container{width:auto;height:auto;position:absolute;background:rgba(36,36,36,.8);padding:.5em;overflow:hidden;display:none}@-webkit-keyframes fadeOut{0%{opacity:1}to{opacity:0}}@keyframes fadeOut{0%{opacity:1}to{opacity:0}}.fadeOut{-webkit-animation:fadeOut ease .8s;animation:fadeOut ease .8s;animation-fill-mode:forwards;-webkit-animation-fill-mode:forwards}@-webkit-keyframes fadeIn{0%{opacity:0}to{opacity:1}}@keyframes fadeIn{0%{opacity:0}to{opacity:1}}.fadeIn{-webkit-animation:fadeIn ease .8s;animation:fadeIn ease .8s;animation-fill-mode:forwards;-webkit-animation-fill-mode:forwards}", ""])
   }, function (e, t) {
     e.exports = function () {
@@ -1319,163 +1324,164 @@
 
     t.__esModule = !0;
     var l = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (e) {
-        return typeof e
-      } : function (e) {
-        return e && "function" == typeof Symbol && e.constructor === Symbol && e !== Symbol.prototype ? "symbol" : typeof e
-      }, c = i(24), u = n(c), p = i(2), h = o(p), d = i(3), f = o(d), y = i(4), A = i(25), v = o(A), m = i(1), g = o(m),
-      w = (f.FullscreenApi, {
-        "0.7.1": "libs/hls.js",
-        "0.7min": "libs/hls.min.js",
-        "0.8.1": "libs/hls0.8.js",
-        "0.8.9": "libs/hls.min.0.8.9.js",
-        "0.12.4": "libs/hls.min.0.12.4.js"
-      }), b = function (e) {
-        function t(i) {
-          return r(this, t), s(this, e.call(this, i, "H5Video"))
-        }
+          return typeof e
+        } : function (e) {
+          return e && "function" == typeof Symbol && e.constructor === Symbol && e !== Symbol.prototype ? "symbol" : typeof e
+        }, c = i(24), u = n(c), p = i(2), h = o(p), d = i(3), f = o(d), y = i(4), A = i(25), v = o(A),
+        m = i(1), g = o(m),
+        w = (f.FullscreenApi, {
+          "0.7.1": "libs/hls.js",
+          "0.7min": "libs/hls.min.js",
+          "0.8.1": "libs/hls0.8.js",
+          "0.8.9": "libs/hls.min.0.8.9.js",
+          "0.12.4": "libs/hls.min.0.12.4.js"
+        }), b = function (e) {
+          function t(i) {
+            return r(this, t), s(this, e.call(this, i, "H5Video"))
+          }
 
-        return a(t, e), t.prototype.render = function (t) {
-          var i, o = this.player.options, n = "system" == o.controls ? "" : null, r = !!o.autoplay || null;
-          return i = o.poster && "object" == l(o.poster) ? o.poster.src : "string" == typeof o.poster ? o.poster : null, this.createEl("video", {
-            controls: n,
-            preload: o.preload || "auto",
-            autoplay: r,
-            "webkit-playsinline": "",
-            playsinline: "",
-            "x-webkit-airplay": "allow",
-            "x5-video-player-type": "h5" == o.x5_type ? "h5" : null,
-            "x5-video-player-fullscreen": !!o.x5_fullscreen || null,
-            "x5-video-orientation": ["landscape", "portrait", "landscape|portrait"][o.x5_orientation] || null,
-            "x5-playsinline": 1 == !!o.x5_playsinline ? o.x5_playsinline : null,
-            "x5-mse-live-streaming": o.live ? "" : null
-          }), this.el.style.width = this.player.width, this.el.style.height = this.player.height, e.prototype.render.call(this, t)
-        }, t.prototype.__hlsLoaded = function (e) {
-          if (!Hls.isSupported()) {
-            return this.notify({type: "error", code: 5, timeStamp: +new Date})
-          }
-          this.hls && this.hls.destroy();
-          var t = new Hls(this.options.hlsConfig);
-          t.loadSource(e), t.attachMedia(this.el), t.on(Hls.Events.MANIFEST_PARSED, function (e, t) {
-          }), t.on(Hls.Events.MEDIA_DETACHED, function () {
-          }), t.on(Hls.Events.ERROR, f.bind(this, this.__hlsOnError)), this.hls = t
-        }, t.prototype.__hlsOnManifestParsed = function (e, t) {
-          this.metaDataLoaded = !0
-        }, t.prototype.__hlsOnError = function (e, t) {
-          var i = t.type, o = t.details, n = t.fatal, r = this.hls;
-          if (n) {
-            switch (i) {
-              case Hls.ErrorTypes.NETWORK_ERROR:
-                o.indexOf("TimeOut") > 0 ? f.console.error("加载视频文件超时") : f.console.error("无法加载视频文件，请检查网络，以及视频文件是否允许跨域请求访问，m3u8文件是否存在 " + (t.response && t.response.status ? "netstatus:" + t.response.status : "")), this.notify({
-                  type: "error",
-                  code: 2,
-                  timeStamp: +new Date
-                }), r.startLoad();
-                break;
-              case Hls.ErrorTypes.MEDIA_ERROR:
-                r.recoverMediaError();
-                break;
-              default:
-                r.destroy()
+          return a(t, e), t.prototype.render = function (t) {
+            var i, o = this.player.options, n = "system" == o.controls ? "" : null, r = !!o.autoplay || null;
+            return i = o.poster && "object" == l(o.poster) ? o.poster.src : "string" == typeof o.poster ? o.poster : null, this.createEl("video", {
+              controls: n,
+              preload: o.preload || "auto",
+              autoplay: r,
+              "webkit-playsinline": "",
+              playsinline: "",
+              "x-webkit-airplay": "allow",
+              "x5-video-player-type": "h5" == o.x5_type ? "h5" : null,
+              "x5-video-player-fullscreen": !!o.x5_fullscreen || null,
+              "x5-video-orientation": ["landscape", "portrait", "landscape|portrait"][o.x5_orientation] || null,
+              "x5-playsinline": 1 == !!o.x5_playsinline ? o.x5_playsinline : null,
+              "x5-mse-live-streaming": o.live ? "" : null
+            }), this.el.style.width = this.player.width, this.el.style.height = this.player.height, e.prototype.render.call(this, t)
+          }, t.prototype.__hlsLoaded = function (e) {
+            if (!Hls.isSupported()) {
+              return this.notify({type: "error", code: 5, timeStamp: +new Date})
             }
-          }
-        }, t.prototype.__flvLoaded = function (e) {
-          if (!flvjs.isSupported()) {
-            return this.notify({type: "error", code: 5, timeStamp: +new Date})
-          }
-          this.flv && this.flv.destroy();
-          var t = flvjs.createPlayer({type: "flv", isLive: this.player.options.live, url: e}, this.options.flvConfig);
-          t.attachMediaElement(this.el), t.on(flvjs.Events.ERROR, f.bind(this, function (e, t, i) {
-            var o = {type: "error"};
-            e == flvjs.ErrorTypes.NETWORK_ERROR && (o.code = 2), e == flvjs.ErrorTypes.MEDIA_ERROR && (o.code = 1002), e == flvjs.ErrorTypes.OTHER_ERROR, o.timeStamp = +new Date, this.notify(o)
-          })), t.on(flvjs.Events.MEDIA_INFO, f.bind(this, function (e, t) {
-          })), t.on(flvjs.Events.STATISTICS_INFO, f.bind(this, function (e, t) {
-          })), this.flv = t, t.load()
-        }, t.prototype.setup = function () {
-          this.playState = v.PlayStates.IDLE, this.seekState = v.SeekStates.IDLE, this.metaDataLoaded = !1, this.__timebase = +new Date, this.on(y.MSG.MetaLoaded, this.notify), this.on(y.MSG.Loaded, this.notify), this.on(y.MSG.Progress, this.notify), this.on(y.MSG.Play, this.notify), this.on(y.MSG.Playing, this.notify), this.on(y.MSG.Pause, this.notify), this.on(y.MSG.Error, this.notify), this.on(y.MSG.TimeUpdate, this.notify), this.on(y.MSG.Ended, this.notify), this.on(y.MSG.Seeking, this.notify), this.on(y.MSG.Seeked, this.notify), this.on(y.MSG.VolumeChange, this.notify), this.on("durationchange", this.notify), this.load(this.options.src, this.options.m3u8 ? f.VideoType.M3U8 : "")
-        }, t.prototype.destroy = function () {
-          e.prototype.destroy.call(this), this.hls && this.hls.destroy(), this.flv && this.flv.destroy()
-        }, t.prototype.notify = function (e) {
-          var t = {type: e.type, src: this, ts: +new Date, timeStamp: e.timeStamp};
-          switch (e.type) {
-            case y.MSG.MetaLoaded:
-              this.metaDataLoaded = !0;
-              break;
-            case y.MSG.Error:
-              var i = {
-                1: "MEDIA_ERR_ABORTED",
-                2: "MEDIA_ERR_NETWORK",
-                3: "MEDIA_ERR_DECODE",
-                4: "MEDIA_ERR_SRC_NOT_SUPPORTED"
-              };
-              t.detail = this.el && this.el.error || {code: e.code}, t.detail.reason = i[t.detail.code];
-              break;
-            case y.MSG.Ended:
-              this.pause(), this.playState = v.PlayStates.STOP;
-              break;
-            case"durationchange":
-              0 != this.videoHeight() && (t.type = y.MSG.Resize);
-              break;
-            case y.MSG.Playing:
-              this.playState = e.type.toUpperCase();
-              break;
-            case y.MSG.Pause:
-              this.playState = v.PlayStates.PAUSED;
-              break;
-            case y.MSG.Seeking:
-            case y.MSG.Seeked:
-              this.seekState = e.type.toUpperCase()
-          }
-          "timeupdate" != e.type, this.pub(t)
-        }, t.prototype.videoWidth = function () {
-          return this.el.videoWidth
-        }, t.prototype.videoHeight = function () {
-          return this.el.videoHeight
-        }, t.prototype.width = function (e) {
-          return e ? void (this.el.style.width = e) : this.el.width
-        }, t.prototype.height = function (e) {
-          return e ? void (this.el.style.height = e) : this.el.height
-        }, t.prototype.play = function () {
-          this.options.hlsConfig && this.options.hlsConfig.autoStartLoad === !1 && this.hls && this.hls.startLoad(-1), this.el.play()
-        }, t.prototype.togglePlay = function () {
-          this.paused() ? this.play() : this.pause()
-        }, t.prototype.pause = function () {
-          this.el.pause()
-        }, t.prototype.stop = function () {
-          this.el.pause(), this.el.currentTime = 0
-        }, t.prototype.paused = function () {
-          return this.el.paused
-        }, t.prototype.buffered = function () {
-          return this.el.buffered.length >= 1 ? this.el.buffered.end(this.el.buffered.length - 1) : 0
-        }, t.prototype.currentTime = function (e) {
-          return "undefined" == typeof e ? this.el.currentTime : this.el.currentTime = e
-        }, t.prototype.duration = function () {
-          return this.el.duration || 0
-        }, t.prototype.mute = function (e) {
-          return "undefined" == typeof e ? this.el.muted : (this.volume(e ? 0 : this.__lastVol), this.el.muted = e)
-        }, t.prototype.volume = function (e) {
-          return "undefined" == typeof e ? this.el.volume : (e < 0 && (e = 0), e > 1 && (e = 1), 0 != e && (this.__lastVol = e), this.el.muted = 0 == e, this.options.volume = e, this.el.volume = e)
-        }, t.prototype.fullscreen = function (e) {
-          return f.doFullscreen(this.player, e, this.owner)
-        }, t.prototype.load = function (e, t) {
-          this.pub({type: y.MSG.Load, src: this, ts: +new Date, detail: {src: e, type: t}});
-          var i = 1, o = 0;
-          if (!g.IS_ENABLED_MSE || !i && !o || g.IS_X5TBS && this.player.options.x5_player || i && g.IS_MAC && g.IS_SAFARI && !g.IS_IOS) {
-            this.__type = t, this.el.src = e
-          } else {
-            var n = this, r = w[this.options.hls] || w["0.7.1"];
-            // tcplayer.js 加入对encryptHls的判断,如果设置了encryptHls蚕食,则使用自定义的hls.js文件进行解析
-            i ? (this.__type = f.VideoType.M3U8, "undefined" == typeof window.Hls ? h.loadScript(f.unifyProtocol(this.player.options.encryptHls ? this.player.options.encryptHls :　(f.CDNPath + r)), function () {
-              n.__hlsLoaded.call(n, e)
-            }) : this.__hlsLoaded(e)) : o && (this.__type = f.VideoType.FLV, "undefined" == typeof window.flvjs ? h.loadScript(f.unifyProtocol(f.CDNPath + "libs/flv.min.1.5.js"), function () {
-              n.__flvLoaded.call(n, e)
-            }) : this.__flvLoaded(e))
-          }
-        }, t.prototype.playing = function () {
-          return !this.el.paused
-        }, t.prototype.type = function () {
-          return this.__type
-        }, t
-      }(u["default"]);
+            this.hls && this.hls.destroy();
+            var t = new Hls(this.options.hlsConfig);
+            t.loadSource(e), t.attachMedia(this.el), t.on(Hls.Events.MANIFEST_PARSED, function (e, t) {
+            }), t.on(Hls.Events.MEDIA_DETACHED, function () {
+            }), t.on(Hls.Events.ERROR, f.bind(this, this.__hlsOnError)), this.hls = t
+          }, t.prototype.__hlsOnManifestParsed = function (e, t) {
+            this.metaDataLoaded = !0
+          }, t.prototype.__hlsOnError = function (e, t) {
+            var i = t.type, o = t.details, n = t.fatal, r = this.hls;
+            if (n) {
+              switch (i) {
+                case Hls.ErrorTypes.NETWORK_ERROR:
+                  o.indexOf("TimeOut") > 0 ? f.console.error("加载视频文件超时") : f.console.error("无法加载视频文件，请检查网络，以及视频文件是否允许跨域请求访问，m3u8文件是否存在 " + (t.response && t.response.status ? "netstatus:" + t.response.status : "")), this.notify({
+                    type: "error",
+                    code: 2,
+                    timeStamp: +new Date
+                  }), r.startLoad();
+                  break;
+                case Hls.ErrorTypes.MEDIA_ERROR:
+                  r.recoverMediaError();
+                  break;
+                default:
+                  r.destroy()
+              }
+            }
+          }, t.prototype.__flvLoaded = function (e) {
+            if (!flvjs.isSupported()) {
+              return this.notify({type: "error", code: 5, timeStamp: +new Date})
+            }
+            this.flv && this.flv.destroy();
+            var t = flvjs.createPlayer({type: "flv", isLive: this.player.options.live, url: e}, this.options.flvConfig);
+            t.attachMediaElement(this.el), t.on(flvjs.Events.ERROR, f.bind(this, function (e, t, i) {
+              var o = {type: "error"};
+              e == flvjs.ErrorTypes.NETWORK_ERROR && (o.code = 2), e == flvjs.ErrorTypes.MEDIA_ERROR && (o.code = 1002), e == flvjs.ErrorTypes.OTHER_ERROR, o.timeStamp = +new Date, this.notify(o)
+            })), t.on(flvjs.Events.MEDIA_INFO, f.bind(this, function (e, t) {
+            })), t.on(flvjs.Events.STATISTICS_INFO, f.bind(this, function (e, t) {
+            })), this.flv = t, t.load()
+          }, t.prototype.setup = function () {
+            this.playState = v.PlayStates.IDLE, this.seekState = v.SeekStates.IDLE, this.metaDataLoaded = !1, this.__timebase = +new Date, this.on(y.MSG.MetaLoaded, this.notify), this.on(y.MSG.Loaded, this.notify), this.on(y.MSG.Progress, this.notify), this.on(y.MSG.Play, this.notify), this.on(y.MSG.Playing, this.notify), this.on(y.MSG.Pause, this.notify), this.on(y.MSG.Error, this.notify), this.on(y.MSG.TimeUpdate, this.notify), this.on(y.MSG.Ended, this.notify), this.on(y.MSG.Seeking, this.notify), this.on(y.MSG.Seeked, this.notify), this.on(y.MSG.VolumeChange, this.notify), this.on("durationchange", this.notify), this.load(this.options.src, this.options.m3u8 ? f.VideoType.M3U8 : "")
+          }, t.prototype.destroy = function () {
+            e.prototype.destroy.call(this), this.hls && this.hls.destroy(), this.flv && this.flv.destroy()
+          }, t.prototype.notify = function (e) {
+            var t = {type: e.type, src: this, ts: +new Date, timeStamp: e.timeStamp};
+            switch (e.type) {
+              case y.MSG.MetaLoaded:
+                this.metaDataLoaded = !0;
+                break;
+              case y.MSG.Error:
+                var i = {
+                  1: "MEDIA_ERR_ABORTED",
+                  2: "MEDIA_ERR_NETWORK",
+                  3: "MEDIA_ERR_DECODE",
+                  4: "MEDIA_ERR_SRC_NOT_SUPPORTED"
+                };
+                t.detail = this.el && this.el.error || {code: e.code}, t.detail.reason = i[t.detail.code];
+                break;
+              case y.MSG.Ended:
+                this.pause(), this.playState = v.PlayStates.STOP;
+                break;
+              case"durationchange":
+                0 != this.videoHeight() && (t.type = y.MSG.Resize);
+                break;
+              case y.MSG.Playing:
+                this.playState = e.type.toUpperCase();
+                break;
+              case y.MSG.Pause:
+                this.playState = v.PlayStates.PAUSED;
+                break;
+              case y.MSG.Seeking:
+              case y.MSG.Seeked:
+                this.seekState = e.type.toUpperCase()
+            }
+            "timeupdate" != e.type, this.pub(t)
+          }, t.prototype.videoWidth = function () {
+            return this.el.videoWidth
+          }, t.prototype.videoHeight = function () {
+            return this.el.videoHeight
+          }, t.prototype.width = function (e) {
+            return e ? void (this.el.style.width = e) : this.el.width
+          }, t.prototype.height = function (e) {
+            return e ? void (this.el.style.height = e) : this.el.height
+          }, t.prototype.play = function () {
+            this.options.hlsConfig && this.options.hlsConfig.autoStartLoad === !1 && this.hls && this.hls.startLoad(-1), this.el.play()
+          }, t.prototype.togglePlay = function () {
+            this.paused() ? this.play() : this.pause()
+          }, t.prototype.pause = function () {
+            this.el.pause()
+          }, t.prototype.stop = function () {
+            this.el.pause(), this.el.currentTime = 0
+          }, t.prototype.paused = function () {
+            return this.el.paused
+          }, t.prototype.buffered = function () {
+            return this.el.buffered.length >= 1 ? this.el.buffered.end(this.el.buffered.length - 1) : 0
+          }, t.prototype.currentTime = function (e) {
+            return "undefined" == typeof e ? this.el.currentTime : this.el.currentTime = e
+          }, t.prototype.duration = function () {
+            return this.el.duration || 0
+          }, t.prototype.mute = function (e) {
+            return "undefined" == typeof e ? this.el.muted : (this.volume(e ? 0 : this.__lastVol), this.el.muted = e)
+          }, t.prototype.volume = function (e) {
+            return "undefined" == typeof e ? this.el.volume : (e < 0 && (e = 0), e > 1 && (e = 1), 0 != e && (this.__lastVol = e), this.el.muted = 0 == e, this.options.volume = e, this.el.volume = e)
+          }, t.prototype.fullscreen = function (e) {
+            return f.doFullscreen(this.player, e, this.owner)
+          }, t.prototype.load = function (e, t) {
+            this.pub({type: y.MSG.Load, src: this, ts: +new Date, detail: {src: e, type: t}});
+            var i = 1, o = 0;
+            // 由于笔者播放的一定是m3u8,所以i=1,o=0,而!i && !o 一定为false,!i && !o也可去掉
+            if (!g.IS_ENABLED_MSE || !i && !o || g.IS_X5TBS && this.player.options.x5_player) {
+              this.__type = t, this.el.src = e
+            } else {
+              var n = this, r = w[this.options.hls] || w["0.7.1"];
+              i ? (this.__type = f.VideoType.M3U8, "undefined" == typeof window.Hls ? h.loadScript(f.unifyProtocol(this.player.options.encryptHls ? this.player.options.encryptHls : (f.CDNPath + r)), function () {
+                n.__hlsLoaded.call(n, e)
+              }) : this.__hlsLoaded(e)) : o && (this.__type = f.VideoType.FLV, "undefined" == typeof window.flvjs ? h.loadScript(f.unifyProtocol(f.CDNPath + "libs/flv.min.1.5.js"), function () {
+                n.__flvLoaded.call(n, e)
+              }) : this.__flvLoaded(e))
+            }
+          }, t.prototype.playing = function () {
+            return !this.el.paused
+          }, t.prototype.type = function () {
+            return this.__type
+          }, t
+        }(u["default"]);
     t["default"] = b
   }, function (e, t, i) {
     function o(e) {
@@ -1613,181 +1619,181 @@
 
     t.__esModule = !0;
     var c = i(24), u = n(c), p = i(4), h = i(2), d = o(h), f = i(3), y = o(f), A = i(25), v = o(A), m = i(1), g = o(m),
-      w = function (e) {
-        function t(i) {
-          r(this, t);
-          var o = s(this, e.call(this, i, "FlashVideo")), n = "vcpFlashCB_" + o.guid;
-          return o.__flashCB = n, window[n] || (window[n] = function (e, t) {
-            t = t && t[0];
-            var i = window[n].fnObj && window[n].fnObj[t.objectID];
-            i && i(e, t)
-          }, window[n].fnObj = {}), o
-        }
+        w = function (e) {
+          function t(i) {
+            r(this, t);
+            var o = s(this, e.call(this, i, "FlashVideo")), n = "vcpFlashCB_" + o.guid;
+            return o.__flashCB = n, window[n] || (window[n] = function (e, t) {
+              t = t && t[0];
+              var i = window[n].fnObj && window[n].fnObj[t.objectID];
+              i && i(e, t)
+            }, window[n].fnObj = {}), o
+          }
 
-        return a(t, e), t.prototype.render = function (e) {
-          this.__timebase = +new Date;
-          var t = this.player.options,
-            i = y.unifyProtocol(t.flashUrl || "//imgcache.qq.com/open/qcloud/video/player/release/QCPlayer.swf"),
-            o = "opaque", n = "obj_vcplayer_" + this.player.guid, r = this.__flashCB;
-          this.__id = n;
-          var s = d.createEl("div", {"class": "vcp-video"});
-          s.innerHTML = '\n\t\t<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="" id="' + n + '" width="100%" height="100%">\n            <param name="movie"  value="' + i + '" />\n            <param name="quality" value="autohigh" />\n            <param name="swliveconnect" value="true" />\n            <param name="allowScriptAccess" value="always" />\n            <param name="bgcolor" value="#000" />\n            <param name="allowFullScreen" value="true" />\n            <param name="wmode" value="' + o + '" />\n            <param name="FlashVars" value="cbName=' + r + '" />\n\n            <embed src="' + i + '" width="100%" height="100%" name="' + n + '"\n                   quality="autohigh"\n                   bgcolor="#000"\n                   align="middle" allowFullScreen="true"\n                   allowScriptAccess="always"\n                   type="application/x-shockwave-flash"\n                   swliveconnect="true"\n                   wmode="' + o + '"\n                   FlashVars="cbName=' + r + '"\n                   pluginspage="http://www.macromedia.com/go/getflashplayer" >\n            </embed>\n        </object>\n\t\t', this.container = s, this.owner = e, this.owner.appendChild(s), this.cover = d.createEl("div", {"class": "vcp-pre-flash"}), this.owner.appendChild(this.cover), window[this.__flashCB].fnObj[this.__id] = y.bind(this, this.notify)
-        }, t.prototype.setup = function () {
-          this.on("error", this.notify), this.playState = v.PlayStates.IDLE, this.seekState = v.SeekStates.IDLE, this.metaDataLoaded = !1
-        }, t.prototype.doPolling = function () {
-          this.options.live || (clearInterval(this.__timer), this.__timer = setInterval(this.interval.bind(this), 1000))
-        }, t.prototype.endPolling = function () {
-          clearInterval(this.__timer)
-        }, t.prototype.interval = function () {
-          var e;
-          try {
-            e = this.el.getState()
-          } catch (t) {
-            return void this.endPolling()
-          }
-          if (this.__m3u8) {
-            var i = this.currentTime() + e.bufferLength;
-            this.__buffered !== i && (this.__buffered = i, this.pub({
-              type: p.MSG.Progress,
-              src: this,
-              ts: +new Date
-            })), this.__buffered >= this.duration() && this.endPolling()
-          } else {
-            this.__rtmp || (this.__bytesloaded != e.bytesLoaded && (this.__bytesloaded = e.bytesLoaded, this.pub({
-              type: p.MSG.Progress,
-              src: this,
-              ts: +new Date
-            })), this.__bytesloaded >= this.__bytesTotal && this.endPolling())
-          }
-        }, t.prototype.destroy = function () {
-          "undefined" != typeof this.el && "undefined" != typeof this.el.destroy && this.el.destroy(), this.endPolling(), delete window[this.__flashCB].fnObj[this.__id], e.prototype.destroy.call(this)
-        }, t.prototype.notify = function (e, t) {
-          var i = {type: e, ts: +new Date};
-          try {
-            switch (this.options.debug && this.pub({
-              type: i.type,
-              src: this,
-              ts: i.ts,
-              detail: y.extend({debug: !0}, t)
-            }), i.type) {
-              case"ready":
-                if (this.el = l(this.__id), this.setup(), g.IS_FIREFOX) {
+          return a(t, e), t.prototype.render = function (e) {
+            this.__timebase = +new Date;
+            var t = this.player.options,
+                i = y.unifyProtocol(t.flashUrl || "//imgcache.qq.com/open/qcloud/video/player/release/QCPlayer.swf"),
+                o = "opaque", n = "obj_vcplayer_" + this.player.guid, r = this.__flashCB;
+            this.__id = n;
+            var s = d.createEl("div", {"class": "vcp-video"});
+            s.innerHTML = '\n\t\t<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="" id="' + n + '" width="100%" height="100%">\n            <param name="movie"  value="' + i + '" />\n            <param name="quality" value="autohigh" />\n            <param name="swliveconnect" value="true" />\n            <param name="allowScriptAccess" value="always" />\n            <param name="bgcolor" value="#000" />\n            <param name="allowFullScreen" value="true" />\n            <param name="wmode" value="' + o + '" />\n            <param name="FlashVars" value="cbName=' + r + '" />\n\n            <embed src="' + i + '" width="100%" height="100%" name="' + n + '"\n                   quality="autohigh"\n                   bgcolor="#000"\n                   align="middle" allowFullScreen="true"\n                   allowScriptAccess="always"\n                   type="application/x-shockwave-flash"\n                   swliveconnect="true"\n                   wmode="' + o + '"\n                   FlashVars="cbName=' + r + '"\n                   pluginspage="http://www.macromedia.com/go/getflashplayer" >\n            </embed>\n        </object>\n\t\t', this.container = s, this.owner = e, this.owner.appendChild(s), this.cover = d.createEl("div", {"class": "vcp-pre-flash"}), this.owner.appendChild(this.cover), window[this.__flashCB].fnObj[this.__id] = y.bind(this, this.notify)
+          }, t.prototype.setup = function () {
+            this.on("error", this.notify), this.playState = v.PlayStates.IDLE, this.seekState = v.SeekStates.IDLE, this.metaDataLoaded = !1
+          }, t.prototype.doPolling = function () {
+            this.options.live || (clearInterval(this.__timer), this.__timer = setInterval(this.interval.bind(this), 1000))
+          }, t.prototype.endPolling = function () {
+            clearInterval(this.__timer)
+          }, t.prototype.interval = function () {
+            var e;
+            try {
+              e = this.el.getState()
+            } catch (t) {
+              return void this.endPolling()
+            }
+            if (this.__m3u8) {
+              var i = this.currentTime() + e.bufferLength;
+              this.__buffered !== i && (this.__buffered = i, this.pub({
+                type: p.MSG.Progress,
+                src: this,
+                ts: +new Date
+              })), this.__buffered >= this.duration() && this.endPolling()
+            } else {
+              this.__rtmp || (this.__bytesloaded != e.bytesLoaded && (this.__bytesloaded = e.bytesLoaded, this.pub({
+                type: p.MSG.Progress,
+                src: this,
+                ts: +new Date
+              })), this.__bytesloaded >= this.__bytesTotal && this.endPolling())
+            }
+          }, t.prototype.destroy = function () {
+            "undefined" != typeof this.el && "undefined" != typeof this.el.destroy && this.el.destroy(), this.endPolling(), delete window[this.__flashCB].fnObj[this.__id], e.prototype.destroy.call(this)
+          }, t.prototype.notify = function (e, t) {
+            var i = {type: e, ts: +new Date};
+            try {
+              switch (this.options.debug && this.pub({
+                type: i.type,
+                src: this,
+                ts: i.ts,
+                detail: y.extend({debug: !0}, t)
+              }), i.type) {
+                case"ready":
+                  if (this.el = l(this.__id), this.setup(), g.IS_FIREFOX) {
+                    var o = this;
+                    setTimeout(function () {
+                      o.el.setAutoPlay(!!o.options.autoplay), o.__timebase = new Date - t.time, o.load(o.options.src)
+                    }, 0)
+                  } else {
+                    this.el.setAutoPlay(!!this.options.autoplay), this.__timebase = new Date - t.time, this.load(this.options.src)
+                  }
+                  return;
+                case"metaData":
+                  i.type = p.MSG.MetaLoaded, this.__videoWidth = t.videoWidth, this.__videoHeight = t.videoHeight, this.__duration = t.duration, this.__bytesTotal = t.bytesTotal, this.__prevPlayState = null, this.__m3u8 = t.type === y.VideoType.M3U8, this.__rtmp = t.type === y.VideoType.RTMP, this.__type = t.type, this.__metaloaded = !0, this.metaDataLoaded = !0, this.doPolling();
                   var o = this;
+                  if (!o.cover) {
+                    break
+                  }
                   setTimeout(function () {
-                    o.el.setAutoPlay(!!o.options.autoplay), o.__timebase = new Date - t.time, o.load(o.options.src)
-                  }, 0)
-                } else {
-                  this.el.setAutoPlay(!!this.options.autoplay), this.__timebase = new Date - t.time, this.load(this.options.src)
-                }
-                return;
-              case"metaData":
-                i.type = p.MSG.MetaLoaded, this.__videoWidth = t.videoWidth, this.__videoHeight = t.videoHeight, this.__duration = t.duration, this.__bytesTotal = t.bytesTotal, this.__prevPlayState = null, this.__m3u8 = t.type === y.VideoType.M3U8, this.__rtmp = t.type === y.VideoType.RTMP, this.__type = t.type, this.__metaloaded = !0, this.metaDataLoaded = !0, this.doPolling();
-                var o = this;
-                if (!o.cover) {
-                  break
-                }
-                setTimeout(function () {
-                  o.cover && (o.owner.removeChild(o.cover), o.cover = null)
-                }, 500);
-                break;
-              case"playState":
-                this.playState = t.playState, t.playState == v.PlayStates.PLAYING ? (this.__playing = !0, this.__stopped = !1, i.type = p.MSG.Play) : t.playState == v.PlayStates.PAUSED ? (this.__playing = !1, this.__stopped = !1, i.type = p.MSG.Pause) : t.playState == v.PlayStates.STOP ? (this.__playing = !1, this.__stopped = !0, i.type = p.MSG.Ended, this.__prevPlayState = null, this.options.live && (this.metaDataLoaded = !1)) : t.playState == v.PlayStates.IDLE && (this.__playing = !1, this.__stopped = !0, i.type = p.MSG.Ended);
-                break;
-              case"seekState":
-                if (this.seekState = t.seekState, !this.__metaloaded) {
-                  return
-                }
-                if (t.seekState == v.SeekStates.SEEKING) {
-                  i.type = p.MSG.Seeking
-                } else {
-                  if (t.seekState != v.SeekStates.SEEKED) {
+                    o.cover && (o.owner.removeChild(o.cover), o.cover = null)
+                  }, 500);
+                  break;
+                case"playState":
+                  this.playState = t.playState, t.playState == v.PlayStates.PLAYING ? (this.__playing = !0, this.__stopped = !1, i.type = p.MSG.Play) : t.playState == v.PlayStates.PAUSED ? (this.__playing = !1, this.__stopped = !1, i.type = p.MSG.Pause) : t.playState == v.PlayStates.STOP ? (this.__playing = !1, this.__stopped = !0, i.type = p.MSG.Ended, this.__prevPlayState = null, this.options.live && (this.metaDataLoaded = !1)) : t.playState == v.PlayStates.IDLE && (this.__playing = !1, this.__stopped = !0, i.type = p.MSG.Ended);
+                  break;
+                case"seekState":
+                  if (this.seekState = t.seekState, !this.__metaloaded) {
                     return
                   }
-                  this.__m3u8 || this.options.live || t.playState != v.PlayStates.STOP || (this.play(), this.__prevPlayState = t.playState), this.__m3u8 && (i.type = p.MSG.Seeked)
-                }
-                break;
-              case"netStatus":
-                this.options.live || ("NetStream.Buffer.Full" == t.code ? (this.__prevPlayState == v.PlayStates.PAUSED || this.__prevPlayState == v.PlayStates.STOP, this.__prevPlayState = null, i.type = p.MSG.Seeked) : "NetStream.Seek.Complete" == t.code), "NetConnection.Connect.Closed" == t.code && (this.options.src.indexOf("rtmp://") > -1 ? this.playState == v.PlayStates.STOP ? (i.type = "error", t = {
-                  code: 13,
-                  reason: t.code
-                }) : (i.type = "error", t = {
-                  code: 1002,
-                  reason: t.code
-                }) : this.playState = v.PlayStates.IDLE), "NetStream.Play.Stop" != t.code && "NetConnection.Connect.Success" != t.code && "NetConnection.Connect.Failed" != t.code || (this.playState = v.PlayStates.IDLE);
-                break;
-              case"mediaTime":
-                this.__videoWidth = t.videoWidth, this.__videoHeight = t.videoHeight, i.type = p.MSG.TimeUpdate;
-                break;
-              case"error":
-                if ("NetStream.Seek.InvalidTime" == t.code) {
-                  return this.currentTime(t.details), !1
-                }
-                "NetStream.Play.StreamNotFound" == t.code && this.pub({
-                  type: "netStatus",
-                  src: this,
-                  ts: i.ts,
-                  detail: t
-                });
-                var n = isNaN(parseInt(t.code)) ? 1002 : t.code, r = isNaN(parseInt(t.code)) ? t.code : t.msg,
-                  s = r.match(/#(\d+)/);
-                s && s[1] && (n = s[1]), t = {code: n, reason: r || ""}, this.metaDataLoaded = !1
+                  if (t.seekState == v.SeekStates.SEEKING) {
+                    i.type = p.MSG.Seeking
+                  } else {
+                    if (t.seekState != v.SeekStates.SEEKED) {
+                      return
+                    }
+                    this.__m3u8 || this.options.live || t.playState != v.PlayStates.STOP || (this.play(), this.__prevPlayState = t.playState), this.__m3u8 && (i.type = p.MSG.Seeked)
+                  }
+                  break;
+                case"netStatus":
+                  this.options.live || ("NetStream.Buffer.Full" == t.code ? (this.__prevPlayState == v.PlayStates.PAUSED || this.__prevPlayState == v.PlayStates.STOP, this.__prevPlayState = null, i.type = p.MSG.Seeked) : "NetStream.Seek.Complete" == t.code), "NetConnection.Connect.Closed" == t.code && (this.options.src.indexOf("rtmp://") > -1 ? this.playState == v.PlayStates.STOP ? (i.type = "error", t = {
+                    code: 13,
+                    reason: t.code
+                  }) : (i.type = "error", t = {
+                    code: 1002,
+                    reason: t.code
+                  }) : this.playState = v.PlayStates.IDLE), "NetStream.Play.Stop" != t.code && "NetConnection.Connect.Success" != t.code && "NetConnection.Connect.Failed" != t.code || (this.playState = v.PlayStates.IDLE);
+                  break;
+                case"mediaTime":
+                  this.__videoWidth = t.videoWidth, this.__videoHeight = t.videoHeight, i.type = p.MSG.TimeUpdate;
+                  break;
+                case"error":
+                  if ("NetStream.Seek.InvalidTime" == t.code) {
+                    return this.currentTime(t.details), !1
+                  }
+                  "NetStream.Play.StreamNotFound" == t.code && this.pub({
+                    type: "netStatus",
+                    src: this,
+                    ts: i.ts,
+                    detail: t
+                  });
+                  var n = isNaN(parseInt(t.code)) ? 1002 : t.code, r = isNaN(parseInt(t.code)) ? t.code : t.msg,
+                      s = r.match(/#(\d+)/);
+                  s && s[1] && (n = s[1]), t = {code: n, reason: r || ""}, this.metaDataLoaded = !1
+              }
+              var a = "printLog" == e || "canPlay" == e;
+              !a && this.pub({type: i.type, src: this, ts: i.ts, detail: t})
+            } catch (c) {
+              y.console.error(e + " " + i.type, c)
             }
-            var a = "printLog" == e || "canPlay" == e;
-            !a && this.pub({type: i.type, src: this, ts: i.ts, detail: t})
-          } catch (c) {
-            y.console.error(e + " " + i.type, c)
-          }
-        }, t.prototype.handleMsg = function (e) {
-        }, t.prototype.videoWidth = function () {
-          return this.__videoWidth
-        }, t.prototype.videoHeight = function () {
-          return this.__videoHeight
-        }, t.prototype.width = function (e) {
-          return "undefined" == typeof e ? this.el && this.el.width : (e = "100%", this.el && (this.el.width = e))
-        }, t.prototype.height = function (e) {
-          return "undefined" == typeof e ? this.el && this.el.height : (e = "100%", this.el && (this.el.height = e))
-        }, t.prototype.play = function (e) {
-          this.playState == v.PlayStates.PAUSED || this.playState == v.PlayStates.PLAYING || e ? this.el.playerResume() : this.playState != v.PlayStates.PLAYING && this.el.playerPlay()
-        }, t.prototype.togglePlay = function () {
-          this.metaDataLoaded ? this.playState == v.PlayStates.PAUSED ? this.el.playerResume() : this.playState == v.PlayStates.PLAYING ? this.el.playerPause() : this.playState == v.PlayStates.STOP ? (this.currentTime(0), this.el.playerResume()) : this.el.playerPlay() : this.player.load()
-        }, t.prototype.pause = function () {
-          this.el.playerPause()
-        }, t.prototype.stop = function () {
-          this.el.playerStop()
-        }, t.prototype.paused = function () {
-          return !this.__playing
-        }, t.prototype.buffered = function () {
-          var e;
-          return this.__m3u8 ? this.__buffered || 0 : (e = (this.__bytesloaded || 0) / (this.__bytesTotal || 1), this.duration() * e)
-        }, t.prototype.currentTime = function (e) {
-          return "undefined" == typeof e ? this.el.getPosition() : void this.el.playerSeek(e)
-        }, t.prototype.duration = function () {
-          return this.__duration
-        }, t.prototype.mute = function (e) {
-          return "undefined" == typeof e ? 0 == this.volume() : void this.volume(e ? 0 : this.__lastVol)
-        }, t.prototype.volume = function (e) {
-          return "undefined" == typeof e ? this.el && this.el.getState().volume : (this.el && this.el.playerVolume(e), 0 != e && (this.__lastVol = e), this.options.volume = e, void this.pub({
-            type: p.MSG.VolumeChange,
-            src: this,
-            ts: +new Date
-          }))
-        }, t.prototype.fullscreen = function (e) {
-          return y.doFullscreen(this.player, e, this.owner)
-        }, t.prototype.load = function (e, t) {
-          this.pub({
-            type: p.MSG.Load,
-            src: this,
-            ts: +new Date,
-            detail: {src: e, type: t}
-          }), this.el && this.el.playerLoad(e)
-        }, t.prototype.playing = function () {
-          return this.el && this.el.getState && this.el.getState().playState === v.PlayStates.PLAYING
-        }, t.prototype.type = function () {
-          return this.__type
-        }, t.prototype.state = function () {
-          return this.playState
-        }, t
-      }(u["default"]);
+          }, t.prototype.handleMsg = function (e) {
+          }, t.prototype.videoWidth = function () {
+            return this.__videoWidth
+          }, t.prototype.videoHeight = function () {
+            return this.__videoHeight
+          }, t.prototype.width = function (e) {
+            return "undefined" == typeof e ? this.el && this.el.width : (e = "100%", this.el && (this.el.width = e))
+          }, t.prototype.height = function (e) {
+            return "undefined" == typeof e ? this.el && this.el.height : (e = "100%", this.el && (this.el.height = e))
+          }, t.prototype.play = function (e) {
+            this.playState == v.PlayStates.PAUSED || this.playState == v.PlayStates.PLAYING || e ? this.el.playerResume() : this.playState != v.PlayStates.PLAYING && this.el.playerPlay()
+          }, t.prototype.togglePlay = function () {
+            this.metaDataLoaded ? this.playState == v.PlayStates.PAUSED ? this.el.playerResume() : this.playState == v.PlayStates.PLAYING ? this.el.playerPause() : this.playState == v.PlayStates.STOP ? (this.currentTime(0), this.el.playerResume()) : this.el.playerPlay() : this.player.load()
+          }, t.prototype.pause = function () {
+            this.el.playerPause()
+          }, t.prototype.stop = function () {
+            this.el.playerStop()
+          }, t.prototype.paused = function () {
+            return !this.__playing
+          }, t.prototype.buffered = function () {
+            var e;
+            return this.__m3u8 ? this.__buffered || 0 : (e = (this.__bytesloaded || 0) / (this.__bytesTotal || 1), this.duration() * e)
+          }, t.prototype.currentTime = function (e) {
+            return "undefined" == typeof e ? this.el.getPosition() : void this.el.playerSeek(e)
+          }, t.prototype.duration = function () {
+            return this.__duration
+          }, t.prototype.mute = function (e) {
+            return "undefined" == typeof e ? 0 == this.volume() : void this.volume(e ? 0 : this.__lastVol)
+          }, t.prototype.volume = function (e) {
+            return "undefined" == typeof e ? this.el && this.el.getState().volume : (this.el && this.el.playerVolume(e), 0 != e && (this.__lastVol = e), this.options.volume = e, void this.pub({
+              type: p.MSG.VolumeChange,
+              src: this,
+              ts: +new Date
+            }))
+          }, t.prototype.fullscreen = function (e) {
+            return y.doFullscreen(this.player, e, this.owner)
+          }, t.prototype.load = function (e, t) {
+            this.pub({
+              type: p.MSG.Load,
+              src: this,
+              ts: +new Date,
+              detail: {src: e, type: t}
+            }), this.el && this.el.playerLoad(e)
+          }, t.prototype.playing = function () {
+            return this.el && this.el.getState && this.el.getState().playState === v.PlayStates.PLAYING
+          }, t.prototype.type = function () {
+            return this.__type
+          }, t.prototype.state = function () {
+            return this.playState
+          }, t
+        }(u["default"]);
     t["default"] = w
   }, function (e, t, i) {
     function o(e) {
@@ -1837,54 +1843,52 @@
     t.__esModule = !0;
     // i为对应的esmodule,M["default"]表示n[i(34)]个,即分辨率是第34个function,相应的,我们将倍速的放在最后,就是第40个,字幕还在倍速之后,就是第41个
     var l = i(24), c = n(l), u = i(28), p = n(u), h = i(29), d = n(h), f = i(30), y = i(31), A = n(y), v = i(32),
-      m = n(v), g = i(33), w = n(g), b = i(34), M = n(b), I = i(4), S = i(2), E = o(S), _ = i(3), T = o(_), D = i(1),
-      L = o(D), rate = i(40), Rate = n(rate), subtitle = i(41), Subtitle = n(subtitle), O = function (e) {
-        function t(i) {
-          return r(this, t), s(this, e.call(this, i, "Panel"))
-        }
-
-        return a(t, e), t.prototype.render = function (t) {
-          // 加入倍速节点,由于现有的手机浏览器都支持倍速,所以去掉了手机端判断
-          // 如果配置了subtitle_srt参数,即传入了srt字幕文件的地址,则加入字幕节点
-          return this.createEl("div", {"class": "vcp-controls-panel"}), this.el.appendChild(E.createEl("div", {"class": "vcp-panel-bg"})), this.playToggle = new p["default"](this.player), this.playToggle.render(this.el), this.timelabel = new m["default"](this.player), this.timelabel.render(this.el), this.timeline = new A["default"](this.player), this.timeline.render(this.el), this.options.fullscreenEnabled === !0 && (this.fullscreen = new d["default"](this.player), this.fullscreen.render(this.el)), L.IS_MOBILE || (this.volume = new w["default"](this.player), this.volume.render(this.el)), this.options.videoSource && this.options.videoSource.definitions.length > 1
-          && (this.claritySwitcher = new M["default"](this.player), this.claritySwitcher.render(this.el))
-          && (this.rateSwitcher = new Rate["default"](this.player), this.rateSwitcher.render(this.el))
-          && (this.options.subtitle_srt ? (this.subtitleSwitcher = new Subtitle["default"](this.player), this.subtitleSwitcher.render(this.el)) : "")
-              , e.prototype.render.call(this, t)
-        }, t.prototype.setup = function () {
-          var e = T.bind(this, this.handleMsg);
-          this.sub(f.MSG.Changing, this.volume, e), this.sub(f.MSG.Changed, this.timeline.progress, e), this.sub(I.MSG.TimeUpdate, this.player.video, e), this.sub(I.MSG.Progress, this.player.video, e), this.sub(I.MSG.MetaLoaded, this.player.video, e), this.sub(I.MSG.Pause, this.player.video, e), this.sub(I.MSG.Play, this.player.video, e), this.sub(I.MSG.Ended, this.player.video, e)
-        }, t.prototype.handleMsg = function (e) {
-          switch (e.type) {
-            case I.MSG.MetaLoaded:
-              this.timeline.percent(this.player.percent()), this.timeline.buffered(this.player.buffered()), this.player.volume("undefined" == typeof this.options.volume ? 0.5 : this.options.volume), !this.options.autoplay && this.show();
-              break;
-            case I.MSG.TimeUpdate:
-              this.timeline.scrubbing || this.timeline.percent(this.player.percent());
-              break;
-            case I.MSG.Pause:
-              this.show();
-              break;
-            case I.MSG.Play:
-              this.hide();
-              break;
-            case I.MSG.Progress:
-              this.timeline.buffered(this.player.buffered());
-              break;
-            case f.MSG.Changed:
-              e.src === this.timeline.progress && this.player.percent(this.timeline.percent());
-              break;
-            case I.MSG.Ended:
-              this.show()
+        m = n(v), g = i(33), w = n(g), b = i(34), M = n(b), I = i(4), S = i(2), E = o(S), _ = i(3), T = o(_), D = i(1),
+        L = o(D), rate = i(40), Rate = n(rate), subtitle = i(41), Subtitle = n(subtitle), O = function (e) {
+          function t(i) {
+            return r(this, t), s(this, e.call(this, i, "Panel"))
           }
-        }, t.prototype.toggle = function () {
-          E.hasClass(this.el, "show") ? this.hide() : this.show()
-        }, t.prototype.show = function () {
-          E.hasClass(this.el, "hide") && (E.removeClass(this.el, "hide"), E.addClass(this.el, "show"))
-        }, t.prototype.hide = function () {
-          E.removeClass(this.el, "show"), E.addClass(this.el, "hide")
-        }, t
-      }(c["default"]);
+
+          return a(t, e), t.prototype.render = function (t) {
+            // 加入倍速节点,由于现有的手机浏览器都支持倍速,所以去掉了手机端判断
+            // 如果配置了subtitle_srt参数,即传入了srt字幕文件的地址,则加入字幕节点
+            return this.createEl("div", {"class": "vcp-controls-panel"}), this.el.appendChild(E.createEl("div", {"class": "vcp-panel-bg"})), this.playToggle = new p["default"](this.player), this.playToggle.render(this.el), this.timelabel = new m["default"](this.player), this.timelabel.render(this.el), this.timeline = new A["default"](this.player), this.timeline.render(this.el), this.options.fullscreenEnabled === !0 && (this.fullscreen = new d["default"](this.player), this.fullscreen.render(this.el)), L.IS_MOBILE || (this.volume = new w["default"](this.player), this.volume.render(this.el)), this.options.videoSource && this.options.videoSource.definitions.length > 1 && (this.claritySwitcher = new M["default"](this.player), this.claritySwitcher.render(this.el)) && (this.rateSwitcher = new Rate["default"](this.player), this.rateSwitcher.render(this.el))
+            && (this.options.subtitle_srt ? (this.subtitleSwitcher = new Subtitle["default"](this.player), this.subtitleSwitcher.render(this.el)) : "")
+                , e.prototype.render.call(this, t)
+          }, t.prototype.setup = function () {
+            var e = T.bind(this, this.handleMsg);
+            this.sub(f.MSG.Changing, this.volume, e), this.sub(f.MSG.Changed, this.timeline.progress, e), this.sub(I.MSG.TimeUpdate, this.player.video, e), this.sub(I.MSG.Progress, this.player.video, e), this.sub(I.MSG.MetaLoaded, this.player.video, e), this.sub(I.MSG.Pause, this.player.video, e), this.sub(I.MSG.Play, this.player.video, e), this.sub(I.MSG.Ended, this.player.video, e)
+          }, t.prototype.handleMsg = function (e) {
+            switch (e.type) {
+              case I.MSG.MetaLoaded:
+                this.timeline.percent(this.player.percent()), this.timeline.buffered(this.player.buffered()), this.player.volume("undefined" == typeof this.options.volume ? 0.5 : this.options.volume), !this.options.autoplay && this.show();
+                break;
+              case I.MSG.TimeUpdate:
+                this.timeline.scrubbing || this.timeline.percent(this.player.percent());
+                break;
+              case I.MSG.Pause:
+                this.show();
+                break;
+              case I.MSG.Play:
+                this.hide();
+                break;
+              case I.MSG.Progress:
+                this.timeline.buffered(this.player.buffered());
+                break;
+              case f.MSG.Changed:
+                e.src === this.timeline.progress && this.player.percent(this.timeline.percent());
+                break;
+              case I.MSG.Ended:
+                this.show()
+            }
+          }, t.prototype.toggle = function () {
+            E.hasClass(this.el, "show") ? this.hide() : this.show()
+          }, t.prototype.show = function () {
+            E.hasClass(this.el, "hide") && (E.removeClass(this.el, "hide"), E.addClass(this.el, "show"))
+          }, t.prototype.hide = function () {
+            E.removeClass(this.el, "show"), E.addClass(this.el, "hide")
+          }, t
+        }(c["default"]);
     t["default"] = O
   }, function (e, t, i) {
     function o(e) {
@@ -2057,39 +2061,39 @@
 
     t.__esModule = !0, t.MSG = void 0;
     var l = i(24), c = n(l), u = i(2), p = o(u), h = i(4), d = (o(h), i(3)),
-      f = (o(d), t.MSG = {Changing: "sliderchanging", Changed: "sliderchanged"}), y = function (e) {
-        function t(i, o) {
-          r(this, t);
-          var n = s(this, e.call(this, i, "Slider"));
-          return n.vertical = o || !1, n
-        }
+        f = (o(d), t.MSG = {Changing: "sliderchanging", Changed: "sliderchanged"}), y = function (e) {
+          function t(i, o) {
+            r(this, t);
+            var n = s(this, e.call(this, i, "Slider"));
+            return n.vertical = o || !1, n
+          }
 
-        return a(t, e), t.prototype.render = function (t, i) {
-          var o = this.vertical ? "vcp-slider-vertical" : "vcp-slider";
-          return this.createEl("div", {"class": o}), this.track = p.createEl("div", {"class": "vcp-slider-track"}), this.thumb = p.createEl("div", {"class": "vcp-slider-thumb"}), this.el.appendChild(this.track), this.el.appendChild(this.thumb), this.enabled = "undefined" == typeof i || i, e.prototype.render.call(this, t)
-        }, t.prototype.setup = function () {
-          this.enabled && (this.ownerDoc = document.body.ownerDocument, this.on("mousedown", this.mousedown), this.on("touchstart", this.mousedown))
-        }, t.prototype.handleMsg = function (e) {
-        }, t.prototype.mousedown = function (e) {
-          return e.preventDefault && e.preventDefault(), this.pos = p.findElPosition(this.el), this.on(this.ownerDoc, "mouseup", this.mouseup), this.on(this.ownerDoc, "mousemove", this.mousemove), this.on(this.ownerDoc, "touchend", this.mouseup), this.on(this.ownerDoc, "touchmove", this.mousemove), this.mousemove(e), !1
-        }, t.prototype.mouseup = function (e) {
-          e.target || e.srcElement;
-          this.off(this.ownerDoc, "mouseup", this.mouseup), this.off(this.ownerDoc, "mousemove", this.mousemove), this.off(this.ownerDoc, "touchend", this.mouseup), this.off(this.ownerDoc, "touchmove", this.mousemove), this.pub({
-            type: f.Changed,
-            src: this,
-            "private": !0
-          })
-        }, t.prototype.mousemove = function (e) {
-          var t = p.getPointerPosition(this.el, e, this.pos);
-          this.vertical ? (this.__percent = 1 - t.y, this.thumb.style.top = 100 * this.__percent + "%") : (this.__percent = t.x, this.thumb.style.left = 100 * this.__percent + "%"), this.__percent = Number(this.__percent.toFixed(3)), this.pub({
-            type: f.Changing,
-            src: this,
-            "private": !0
-          })
-        }, t.prototype.percent = function (e) {
-          return e || 0 == e ? (this.__percent = e, void (this.vertical ? this.thumb.style.top = 100 * this.__percent + "%" : this.thumb.style.left = 100 * this.__percent + "%")) : this.__percent
-        }, t
-      }(c["default"]);
+          return a(t, e), t.prototype.render = function (t, i) {
+            var o = this.vertical ? "vcp-slider-vertical" : "vcp-slider";
+            return this.createEl("div", {"class": o}), this.track = p.createEl("div", {"class": "vcp-slider-track"}), this.thumb = p.createEl("div", {"class": "vcp-slider-thumb"}), this.el.appendChild(this.track), this.el.appendChild(this.thumb), this.enabled = "undefined" == typeof i || i, e.prototype.render.call(this, t)
+          }, t.prototype.setup = function () {
+            this.enabled && (this.ownerDoc = document.body.ownerDocument, this.on("mousedown", this.mousedown), this.on("touchstart", this.mousedown))
+          }, t.prototype.handleMsg = function (e) {
+          }, t.prototype.mousedown = function (e) {
+            return e.preventDefault && e.preventDefault(), this.pos = p.findElPosition(this.el), this.on(this.ownerDoc, "mouseup", this.mouseup), this.on(this.ownerDoc, "mousemove", this.mousemove), this.on(this.ownerDoc, "touchend", this.mouseup), this.on(this.ownerDoc, "touchmove", this.mousemove), this.mousemove(e), !1
+          }, t.prototype.mouseup = function (e) {
+            e.target || e.srcElement;
+            this.off(this.ownerDoc, "mouseup", this.mouseup), this.off(this.ownerDoc, "mousemove", this.mousemove), this.off(this.ownerDoc, "touchend", this.mouseup), this.off(this.ownerDoc, "touchmove", this.mousemove), this.pub({
+              type: f.Changed,
+              src: this,
+              "private": !0
+            })
+          }, t.prototype.mousemove = function (e) {
+            var t = p.getPointerPosition(this.el, e, this.pos);
+            this.vertical ? (this.__percent = 1 - t.y, this.thumb.style.top = 100 * this.__percent + "%") : (this.__percent = t.x, this.thumb.style.left = 100 * this.__percent + "%"), this.__percent = Number(this.__percent.toFixed(3)), this.pub({
+              type: f.Changing,
+              src: this,
+              "private": !0
+            })
+          }, t.prototype.percent = function (e) {
+            return e || 0 == e ? (this.__percent = e, void (this.vertical ? this.thumb.style.top = 100 * this.__percent + "%" : this.thumb.style.left = 100 * this.__percent + "%")) : this.__percent
+          }, t
+        }(c["default"]);
     t["default"] = y
   }, function (e, t, i) {
     function o(e) {
@@ -2353,35 +2357,35 @@
 
     t.__esModule = !0;
     var l = i(24), c = n(l), u = i(2), p = o(u), h = i(3), d = o(h), f = {od: "超清", hd: "高清", sd: "标清"},
-      y = function (e) {
-        function t(i) {
-          r(this, t);
-          var o = s(this, e.call(this, i, "ClaritySwitcher"));
-          return f = d.extend({}, i.options.clarityLabel, f), i.claritySwitcher = o, o
-        }
-
-        return a(t, e), t.prototype.render = function (t) {
-          this.show = !1, this.createEl("div", {"class": "vcp-clarityswitcher"}), this.current = p.createEl("a", {"class": "vcp-vertical-switcher-current"}), this.container = p.createEl("div", {"class": "vcp-vertical-switcher-container"}), this.items = [], this.currentItem = "";
-          var i = this.options.videoSource;
-          this.current.innerHTML = f[i.curDef], this.el.appendChild(this.current);
-          for (var o = 0; o < i.definitions.length; o++) {
-            var n = p.createEl("a", {"class": "vcp-vertical-switcher-item"});
-            n.innerHTML = f[i.definitions[o]], i.definitions[o] == i.curDef && (p.addClass(n, "current"), this.currentItem = n), n.setAttribute("data-def", i.definitions[o]), this.items.push(n), this.container.appendChild(n)
+        y = function (e) {
+          function t(i) {
+            r(this, t);
+            var o = s(this, e.call(this, i, "ClaritySwitcher"));
+            return f = d.extend({}, i.options.clarityLabel, f), i.claritySwitcher = o, o
           }
-          return this.el.appendChild(this.container), e.prototype.render.call(this, t)
-        }, t.prototype.setup = function () {
-          this.on("click", this.onClick), this.on("mouseenter", this.onMouseEnter), this.on("mouseleave", this.onMouseLeave)
-        }, t.prototype.onClick = function (e) {
-          var t = e.target.getAttribute("data-def");
-          t ? (this.current.innerHTML = f[t], p.removeClass(this.currentItem, "current"), p.addClass(e.target, "current"), this.currentItem = e.target, this.player._switchClarity(t)) : !this.show
-        }, t.prototype.onMouseLeave = function () {
-          this.container.style.display = "none", this.show = !1
-        }, t.prototype.onMouseEnter = function () {
-          this.container.style.display = "block", this.show = !0
-        }, t.prototype.setClarity = function (e) {
-          e && (this.current.innerHTML = f[e], p.removeClass(document.querySelector(".vcp-vertical-switcher-item.current"), "current"), p.addClass(document.querySelector('.vcp-vertical-switcher-item[data-def="' + e + '"]'), "current"), this.currentItem = document.querySelector('.vcp-vertical-switcher-item[data-def="' + e + '"]'), this.player._switchClarity(e))
-        }, t
-      }(c["default"]);
+
+          return a(t, e), t.prototype.render = function (t) {
+            this.show = !1, this.createEl("div", {"class": "vcp-clarityswitcher"}), this.current = p.createEl("a", {"class": "vcp-vertical-switcher-current"}), this.container = p.createEl("div", {"class": "vcp-vertical-switcher-container"}), this.items = [], this.currentItem = "";
+            var i = this.options.videoSource;
+            this.current.innerHTML = f[i.curDef], this.el.appendChild(this.current);
+            for (var o = 0; o < i.definitions.length; o++) {
+              var n = p.createEl("a", {"class": "vcp-vertical-switcher-item"});
+              n.innerHTML = f[i.definitions[o]], i.definitions[o] == i.curDef && (p.addClass(n, "current"), this.currentItem = n), n.setAttribute("data-def", i.definitions[o]), this.items.push(n), this.container.appendChild(n)
+            }
+            return this.el.appendChild(this.container), e.prototype.render.call(this, t)
+          }, t.prototype.setup = function () {
+            this.on("click", this.onClick), this.on("mouseenter", this.onMouseEnter), this.on("mouseleave", this.onMouseLeave)
+          }, t.prototype.onClick = function (e) {
+            var t = e.target.getAttribute("data-def");
+            t ? (this.current.innerHTML = f[t], p.removeClass(this.currentItem, "current"), p.addClass(e.target, "current"), this.currentItem = e.target, this.player._switchClarity(t)) : !this.show
+          }, t.prototype.onMouseLeave = function () {
+            this.container.style.display = "none", this.show = !1
+          }, t.prototype.onMouseEnter = function () {
+            this.container.style.display = "block", this.show = !0
+          }, t.prototype.setClarity = function (e) {
+            e && (this.current.innerHTML = f[e], p.removeClass(document.querySelector(".vcp-vertical-switcher-item.current"), "current"), p.addClass(document.querySelector('.vcp-vertical-switcher-item[data-def="' + e + '"]'), "current"), this.currentItem = document.querySelector('.vcp-vertical-switcher-item[data-def="' + e + '"]'), this.player._switchClarity(e))
+          }, t
+        }(c["default"]);
     t["default"] = y
   }, function (e, t, i) {
     function o(e) {
@@ -2574,7 +2578,7 @@
                 return
               }
               var o = "cover" == i.poster.style ? i.options.width / (t.width / t.height) : t.height,
-                n = "-" + i.options.width / 2 + "px", r = "-" + o / 2 + "px";
+                  n = "-" + i.options.width / 2 + "px", r = "-" + o / 2 + "px";
               i.pic.style.cssText = "left: 50%; top: 50%; margin-left: " + n + "; margin-top: " + r + ";"
             }
           }, t.src = e
@@ -2802,7 +2806,7 @@
       }, e.prototype.reportFlash = function () {
         if (window.MtaH5) {
           var e = this.options.videoSource, t = (0, c.getFormat)(e),
-            i = {browser: s.BROWSER_TYPE, mse: !!s.IS_ENABLED_MSE, format: t};
+              i = {browser: s.BROWSER_TYPE, mse: !!s.IS_ENABLED_MSE, format: t};
           MtaH5.clickStat("flash", i)
         }
       }, e
@@ -2856,36 +2860,36 @@
     t.__esModule = !0;
     // 删除了原有的f这个数组
     var l = i(24), c = n(l), u = i(2), p = o(u), h = i(3), d = o(h),
-      y = function (e) {
-        function t(i) {
-          return r(this, t), s(this, e.call(this, i, "ClaritySwitcher"))
-        }
-
-        return a(t, e), t.prototype.render = function (t) {
-          this.show = !1, this.createEl("div", {"class": "vcp-clarityswitcher"}), this.current = p.createEl("a", {"class": "vcp-vertical-switcher-current"}), this.container = p.createEl("div", {"class": "vcp-vertical-switcher-container"}), this.items = [], this.currentItem = "";
-          // curRate为配置中的当前倍速 rates为倍速数组
-          var i = this.options.curRate, f = this.options.rates;
-          this.current.innerHTML = f[i], this.el.appendChild(this.current);
-          for (var o = 0; o < f.length; o++) {
-            var n = p.createEl("a", {"class": "vcp-vertical-switcher-item"});
-            n.innerHTML = f[o], f[o] == i && (p.addClass(n, "current"), this.currentItem = n), n.setAttribute("data-def", o), this.items.push(n), this.container.appendChild(n)
+        y = function (e) {
+          function t(i) {
+            return r(this, t), s(this, e.call(this, i, "ClaritySwitcher"))
           }
-          return this.el.appendChild(this.container), e.prototype.render.call(this, t)
-        }, t.prototype.setup = function () {
-          // 在初始化时加入修改倍速函数_switchRate,切换到当前倍速
-          this.player._switchRate(this.options.curRate), this.on("click", this.onClick), this.on("mouseenter", this.onMouseEnter), this.on("mouseleave", this.onMouseLeave)
-        }, t.prototype.onClick = function (e) {
-          var t = e.target.getAttribute("data-def"),f = this.options.rates;
-          // 修改点击函数,将_switchClarity改为自定义的_switchRate
-          t ? (this.current.innerHTML = f[t], p.removeClass(this.currentItem, "current"), p.addClass(e.target, "current"), this.currentItem = e.target, this.player._switchRate(f[t])) : !this.show
-        }, t.prototype.onMouseLeave = function () {
-          this.container.style.display = "none", this.show = !1
-        }, t.prototype.onMouseEnter = function () {
-          this.container.style.display = "block", this.show = !0
-        }
-        // 去除了无效的setClarity函数,也可不去,对功能无影响,只是代码洁癖
-        , t
-      }(c["default"]);
+
+          return a(t, e), t.prototype.render = function (t) {
+            this.show = !1, this.createEl("div", {"class": "vcp-clarityswitcher"}), this.current = p.createEl("a", {"class": "vcp-vertical-switcher-current"}), this.container = p.createEl("div", {"class": "vcp-vertical-switcher-container"}), this.items = [], this.currentItem = "";
+            // curRateIndex为配置中的当前倍速的索引 rates为倍速数组
+            var i = this.options.curRate, f = this.options.rates;
+            this.current.innerHTML = i, this.el.appendChild(this.current);
+            for (var o = 0; o < f.length; o++) {
+              var n = p.createEl("a", {"class": "vcp-vertical-switcher-item"});
+              n.innerHTML = f[o], f[o] == i && (p.addClass(n, "current"), this.currentItem = n), n.setAttribute("data-def", o), this.items.push(n), this.container.appendChild(n)
+            }
+            return this.el.appendChild(this.container), e.prototype.render.call(this, t)
+          }, t.prototype.setup = function () {
+            // 在初始化时加入修改倍速函数_switchRate,切换到当前倍速
+            this.player._switchRate(this.options.curRate), this.on("click", this.onClick), this.on("mouseenter", this.onMouseEnter), this.on("mouseleave", this.onMouseLeave)
+          }, t.prototype.onClick = function (e) {
+            var t = e.target.getAttribute("data-def"), f = this.options.rates;
+            // 修改点击函数,将_switchClarity改为自定义的_switchRate
+            t ? (this.current.innerHTML = f[t], p.removeClass(this.currentItem, "current"), p.addClass(e.target, "current"), this.currentItem = e.target, this.player._switchRate(f[t])) : !this.show
+          }, t.prototype.onMouseLeave = function () {
+            this.container.style.display = "none", this.show = !1
+          }, t.prototype.onMouseEnter = function () {
+            this.container.style.display = "block", this.show = !0
+          }
+              // 去除了无效的setClarity函数,也可不去,对功能无影响,只是代码洁癖
+              , t
+        }(c["default"]);
     t["default"] = y
   }, function (e, t, i) {
     function o(e) {
