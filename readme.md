@@ -1,4 +1,4 @@
-[示例](https://www.weekweekup.cn/course/contribute/detail?i=26)
+[示例](https://www.weekweekup.cn/contribute/detail?i=26)
 
 # 文件/文件夹说明
 文件 | 说明
